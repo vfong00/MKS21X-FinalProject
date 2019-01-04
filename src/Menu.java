@@ -37,38 +37,40 @@ public static void main(String[] args) throws IOException{
 		terminal.setForegroundColor(ANSI.DEFAULT);
 
 		KeyStroke key = terminal.readInput();
-			if (key != null){
 
-				if (key.getCharacter().equals('q')) {
-					terminal.exitPrivateMode();
-					System.exit(0);
-				}
+		if (key != null){
 
-				if (key.getCharacter().equals('a')) {
-					terminal.setCursorPosition(x,y);
-					terminal.putCharacter(' ');
-					x--;
-				}
-
-				if (key.getCharacter().equals('d')) {
-					terminal.setCursorPosition(x,y);
-					terminal.putCharacter(' ');
-					x++;
-				}
-
-				if (key.getCharacter().equals('w')) {
-					terminal.setCursorPosition(x,y);
-					terminal.putCharacter(' ');
-					y--;
-				}
-
-				if (key.getCharacter().equals('s')) {
-					terminal.setCursorPosition(x,y);
-					terminal.putCharacter(' ');
-					y++;
-				}
-				putString(1,1,terminal,key+"        ");//to clear leftover letters pad withspaces
+			if (key.getCharacter().equals('q')) {
+				terminal.exitPrivateMode();
+				System.exit(0);
 			}
+
+			if (key.getCharacter().equals('a')) {
+				terminal.setCursorPosition(x,y);
+				terminal.putCharacter(' ');
+				x--;
+			}
+
+			if (key.getCharacter().equals('d')) {
+				terminal.setCursorPosition(x,y);
+				terminal.putCharacter(' ');
+				x++;
+			}
+
+			if (key.getCharacter().equals('w')) {
+				terminal.setCursorPosition(x,y);
+				terminal.putCharacter(' ');
+				y--;
+			}
+
+			if (key.getCharacter().equals('s')) {
+				terminal.setCursorPosition(x,y);
+				terminal.putCharacter(' ');
+				y++;
+			}
+
+			putString(1,1,terminal,key+"        ");//to clear leftover letters pad withspaces
+		}
 
 			//DO EVEN WHEN NO KEY PRESSED:
 			long tEnd = System.currentTimeMillis();
