@@ -15,4 +15,8 @@ public abstract class Entity {
   public int getY() {
     return y;
   }
+
+  public char getSprite() {
+    return sprite;
+  }
 }

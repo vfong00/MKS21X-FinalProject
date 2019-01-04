@@ -11,15 +11,17 @@ public class Nethack {
   	terminal.enterPrivateMode();
   	terminal.setCursorVisible(false);
 
-    int x = 10;
-  	int y = 10;
+    Player p = new Player();
+
+    int x = p.getX();
+  	int y = p.getY();
     boolean running = true;
 
   	while(running) {
   		terminal.setCursorPosition(x,y);
   		terminal.setBackgroundColor(ANSI.YELLOW);
   		terminal.setForegroundColor(ANSI.RED);
-  		terminal.putCharacter('@');
+  		terminal.putCharacter(p.getSprite());
   		terminal.setBackgroundColor(ANSI.DEFAULT);
   		terminal.setForegroundColor(ANSI.DEFAULT);
 
