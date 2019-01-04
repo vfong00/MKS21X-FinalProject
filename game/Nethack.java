@@ -1,8 +1,10 @@
+import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.input.*;
 import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.terminal.ansi.*;
 import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import java.io.IOException;
 import java.util.Random;
 
@@ -10,18 +12,14 @@ public class Nethack {
   public static void main(String[] args) throws IOException {
     Object[][] maze = new Object[40][140];
     maze[10][10] = new Player();
-    Terminal terminal = new UnixTerminal();
+    ExtendedTerminal terminal = new UnixTerminal();
   	terminal.enterPrivateMode();
   	terminal.setCursorVisible(false);
+    TextGraphics textGraphics = terminal.newTextGraphics();
 
     // wall generation??
-    Random rng = new Random(21);
-    int iter = 5;
-    while (iter < 0) {
-      int a = rng.nextInt(140);
-      int b = rng.nextInt(140);
-      maze[a][b] = new Wall(a,b);
-      iter--;
+    for (int i = 20; i < 26; i++) {
+      textGraphics.setCharacter(20, i, '#');
     }
 
     // player movement
