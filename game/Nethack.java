@@ -4,13 +4,27 @@ import com.googlecode.lanterna.terminal.ansi.*;
 import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
 import java.io.IOException;
+import java.util.Random;
 
 public class Nethack {
   public static void main(String[] args) throws IOException {
+    Object[][] maze = new Object[40][140];
+    maze[10][10] = new Player();
     Terminal terminal = new UnixTerminal();
   	terminal.enterPrivateMode();
   	terminal.setCursorVisible(false);
 
+    // wall generation??
+    Random rng = new Random(21);
+    int iter = 5;
+    while (iter < 0) {
+      int a = rng.nextInt(140);
+      int b = rng.nextInt(140);
+      maze[a][b] = new Wall(a,b);
+      iter--;
+    }
+
+    // player movement
     Player p = new Player();
 
     int x = p.getX();
