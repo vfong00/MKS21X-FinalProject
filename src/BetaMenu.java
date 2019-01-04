@@ -8,42 +8,22 @@ import java.io.IOException;
 
 public class BetaMenu{
 
-private Terminal terminal;
-private int menpos;
-
-public BetaMenu(){
-	try {
-		Terminal terminal = new UnixTerminal();
-		terminal.enterPrivateMode();
-		terminal.setCursorVisible(false);
-	}catch (Exception e){
-
-	}
-}
-
-public static void putString(int r, int c,Terminal t, String s){
-	try {
-		t.setCursorPosition(r,c);
-		for(int i = 0; i < s.length();i++){
-			t.putCharacter(s.charAt(i));
-		}
-
-	} catch (Exception e){
-
-	}
-}
+public static void main(String[] args) throws IOException {
+	Terminal t = new UnixTerminal();
+	t.enterPrivateMode();
+	t.setCursorVisible(false);
+	int menpos = 15;
+	Color red = new Color(ANSI.RED, ANSI.DEFAULT);
+	Print.printString(20, 15, "start", red, t);
+	Print.printString(20, 16, "help", red, t);
+	Print.printString(19, menpos, ">", red, t);
+	Print.printString(30, 30, "select with space, w and s to select options, q to quit", red, t);
+	Print.printString(30, 21, "DO NOT HIT THE ARROW KEYS OR ELSE U DIE", red, t);
 
 
-public void printMenu(){
-	BetaMenu.putString(20, 15, terminal, "start");
-}
-
-public static void main(String[] args) {
-	BetaMenu b = new BetaMenu();
-	b.printMenu();
 	try {
 		Thread.sleep(2000);
-	} catch(Exception e){
+	} catch (Exception e){
 
 	}
 }
