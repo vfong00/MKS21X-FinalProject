@@ -1,6 +1,7 @@
 import com.googlecode.lanterna.input.*;
 import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.terminal.ansi.*;
+import com.googlecode.lanterna.terminal.ansi.ANSITerminal;
 import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
 import java.io.IOException;
@@ -22,8 +23,26 @@ public static void main(String[] args) throws IOException {
 	Terminal t = new UnixTerminal();
 	t.enterPrivateMode();
 	t.setCursorVisible(false);
+	boolean running = true;
 
-	BetaMenu.printMenu(menpos, t);
+	while (running){
+		t.clearScreen();
+		BetaMenu.printMenu(menpos, t);
+		KeyStroke key = t.readInput();
+		if (key.getCharacter().equals('q')) {
+			t.exitPrivateMode();
+			System.exit(0);
+		}
+
+		if (key.getCharacter().equals('w')) {
+			menpos = 15;
+		}
+
+		if (key.getCharacter().equals('s')) {
+			menpos = 16;
+		}
+
+	}
 
 
 	try {
