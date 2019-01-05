@@ -18,8 +18,8 @@ public class Nethack {
     TextGraphics textGraphics = terminal.newTextGraphics();
 
     // wall generation??
-    for (int i = 20; i < 26; i++) {
-      textGraphics.setCharacter(20, i, '#');
+    for (int i = 15; i < 26; i++) {
+      textGraphics.setCharacter(12, i, '#');
     }
 
     // player movement
