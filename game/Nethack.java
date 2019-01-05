@@ -39,36 +39,33 @@ public static void main(String[] args) throws IOException {
 
 	KeyStroke key = terminal.readInput();
 
-	if (key != null) {
+	if (key.getCharacter().equals('q')) {
+		terminal.exitPrivateMode();
+		System.exit(0);
+	}
 
-		if (key.getCharacter().equals('q')) {
-			terminal.exitPrivateMode();
-  			System.exit(0);
-  		}
+	if ((key.getCharacter().equals('a')) && (textGraphics.getCharacter(x - 1, y) == null)) {
+                terminal.setCursorPosition(x,y);
+		terminal.putCharacter(' ');
+	        x--;
+	}
 
-  		if ((key.getCharacter().equals('a')) && (textGraphics.getCharacter(x - 1, y) == null)) {
-                        terminal.setCursorPosition(x,y);
-  			terminal.putCharacter(' ');
-    		        x--;
-  		}
+	if ((key.getCharacter().equals('d')) && (textGraphics.getCharacter(x + 1, y) == null)) {
+		terminal.setCursorPosition(x,y);
+		terminal.putCharacter(' ');
+		x++;
+	}
 
-  		if ((key.getCharacter().equals('d')) && (textGraphics.getCharacter(x + 1, y) == null)) {
-  			terminal.setCursorPosition(x,y);
-  			terminal.putCharacter(' ');
-  		x++;
-  		}
+	if ((key.getCharacter().equals('w')) && (textGraphics.getCharacter(x, y - 1) == null)) {
+		terminal.setCursorPosition(x,y);
+		terminal.putCharacter(' ');
+		y--;
+	}
 
-  		if ((key.getCharacter().equals('w')) && (textGraphics.getCharacter(x, y - 1) == null)) {
-  			terminal.setCursorPosition(x,y);
-  			terminal.putCharacter(' ');
-  			y--;
-  		}
-
-  		if ((key.getCharacter().equals('s')) && (textGraphics.getCharacter(x, y + 1) == null)) {
-  			terminal.setCursorPosition(x,y);
-  			terminal.putCharacter(' ');
-  			y++;
-  		}
-        }
+	if ((key.getCharacter().equals('s')) && (textGraphics.getCharacter(x, y + 1) == null)) {
+		terminal.setCursorPosition(x,y);
+		terminal.putCharacter(' ');
+		y++;
+	}
 }
 }
