@@ -11,8 +11,7 @@ import java.util.Random;
 public class Nethack {
 
 public static void main(String[] args) throws IOException {
-        Object[][] maze = new Object[40][140];
-        maze[10][10] = new Player();
+        Maze maze = new Maze();
         ExtendedTerminal terminal = new UnixTerminal();
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
@@ -20,7 +19,8 @@ public static void main(String[] args) throws IOException {
 
         // wall generation??
         for (int i = 15; i < 26; i++) {
-        	textGraphics.setCharacter(12, i, '#');
+        	// textGraphics.setCharacter(12, i, '#');
+        	maze.setTile(12, i, new Wall(12, i));
         }
 
         // player movement
