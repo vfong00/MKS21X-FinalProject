@@ -30,13 +30,13 @@ public static void main(String[] args) throws IOException {
         int y = p.getY();
         boolean running = true;
 
-	terminal.setCursorPosition(x,y);
-	terminal.setBackgroundColor(ANSI.YELLOW);
-	terminal.setForegroundColor(ANSI.RED);
-	terminal.putCharacter(p.getSprite());
-	terminal.setBackgroundColor(ANSI.DEFAULT);
-	terminal.setForegroundColor(ANSI.DEFAULT);
 	while (running){
+		terminal.setCursorPosition(x,y);
+		terminal.setBackgroundColor(ANSI.YELLOW);
+		terminal.setForegroundColor(ANSI.RED);
+		terminal.putCharacter(p.getSprite());
+		terminal.setBackgroundColor(ANSI.DEFAULT);
+		terminal.setForegroundColor(ANSI.DEFAULT);
 		KeyStroke key = terminal.readInput();
 
 		if (key.getCharacter().equals('q')) {
