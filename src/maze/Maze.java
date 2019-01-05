@@ -1,5 +1,7 @@
 import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.terminal.ansi.*;
+import java.io.IOException;
+
 
 public class Maze{
 
