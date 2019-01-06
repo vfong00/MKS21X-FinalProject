@@ -33,4 +33,8 @@ public abstract class Entity implements Tileable{
 	this.y = y;
 	map.setTile(this.x, this.y, this);
   }
+
+  public Maze getMap(){
+	return this.map;
+  }
 }
