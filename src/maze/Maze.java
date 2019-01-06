@@ -33,7 +33,7 @@ public void setTile(int x, int y, Tileable toSet){
 public void printMaze(Terminal t) throws IOException{
 	for (int x = 0; x < 100; x++){
 		for (int y = 0; y < 30; y++){
-			t.setCursorPosition(x, y);
+			t.setCursorPosition(x, y + 5);
 			char c = maze[x][y].getSprite();
 			t.putCharacter(c);
 		}
