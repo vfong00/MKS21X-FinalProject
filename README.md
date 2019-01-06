@@ -37,4 +37,9 @@ The majority of the work today is to ease up development later down the line.
 edit: yeah the branch is called terrainGeneration but the refactoring was more
 pressing in my opinion. I'll do the dungeon generation tomorrow :P
 
+edit 2: quick idea, instead of having the player do nothing to collided entities
+in the form of walls, have the player deal damage to all impacted entities and give
+walls either impossibly high health or a regeneration factor (or not and make the
+environment distructible)
+
 ~moody
