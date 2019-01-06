@@ -16,6 +16,7 @@ public Maze(){
 	maze = new Tileable[30][100];
 	for (int x = 0; x < 30; x++){
 		for (int y = 0; y < 100; y++){
+			// initally make everything air
 			maze[x][y] = new Air(x, y);
 		}
 	}

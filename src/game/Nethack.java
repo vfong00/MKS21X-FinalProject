@@ -26,11 +26,11 @@ public static void main(String[] args) throws IOException {
         boolean running = true;
 
 	while (running){
-
 		terminal.setCursorPosition(0, 0);
 		terminal.clearScreen();
 		maze.printMaze(terminal);
 
+		// ask for the keyStroke once, then feed into all the "feeder" functions
 		KeyStroke key = terminal.readInput();
 		char c = key.getCharacter();
 		if (c == 'q'){
