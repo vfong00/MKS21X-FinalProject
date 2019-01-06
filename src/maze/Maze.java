@@ -1,32 +1,42 @@
+import com.googlecode.lanterna.*;
+import com.googlecode.lanterna.input.*;
 import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.terminal.ansi.*;
+import com.googlecode.lanterna.TextColor.*;
+import com.googlecode.lanterna.Symbols.*;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import java.io.IOException;
 
 
 public class Maze{
 
-Object[][] maze;
+private Tileable[][] maze;
 
 public Maze(){
-	maze = new Object[40][100];
+	maze = new Tileable[30][100];
+	for (int x = 0; x < 30; x++){
+		for (int y = 0; y < 100; y++){
+			maze[x][y] = new Air(x, y);
+		}
+	}
 }
 
-public Object getMaze(){
+public Tileable[][] getMaze(){
 	return maze;
 }
 
-public void setTile(int x, int y, Object toSet){
+public void setTile(int x, int y, Tileable toSet){
 	maze[x][y] = toSet;
 }
 
 public void printMaze(Terminal t) throws IOException{
-	for (int y = 29; y >= 0; y--) {
-                for (int x = 0; x < 100; x++) {
-                        t.setCursorPosition(x, y);
-                }
-		System.out.println();
-        }
+	for (int x = 0; x < 30; x++){
+		for (int y = 0; y < 100; y++){
+			t.setCursorPosition(x, y);
+			char c = maze[x][y].getSprite();
+			t.putCharacter(c);
+		}
+	}
 }
-
 
 }
