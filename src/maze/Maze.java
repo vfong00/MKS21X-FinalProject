@@ -13,7 +13,7 @@ public class Maze{
 private Tileable[][] maze;
 
 public Maze(){
-	maze = new Tileable[30][100];
+	maze = new Tileable[100][30];
 	for (int x = 0; x < 30; x++){
 		for (int y = 0; y < 100; y++){
 			// initally make everything air
@@ -31,8 +31,8 @@ public void setTile(int x, int y, Tileable toSet){
 }
 
 public void printMaze(Terminal t) throws IOException{
-	for (int x = 0; x < 30; x++){
-		for (int y = 0; y < 100; y++){
+	for (int x = 0; x < 100; x++){
+		for (int y = 0; y < 30; y++){
 			t.setCursorPosition(x, y);
 			char c = maze[x][y].getSprite();
 			t.putCharacter(c);
