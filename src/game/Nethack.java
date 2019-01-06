@@ -31,24 +31,18 @@ public static void main(String[] args) throws IOException {
 	while (running){
 		// maze.printMaze(terminal);
 		terminal.setCursorPosition(0, 0);
-		maze.printMaze(terminal);
-
-		try {
-			Thread.sleep(2000);
-		} catch (Exception e){}
-
 		terminal.clearScreen();
-
-		try {
-			Thread.sleep(2000);
-		} catch (Exception e){}
-		
-		p.moveTo(11, 15, maze);
 		maze.printMaze(terminal);
 
 		KeyStroke key = terminal.readInput();
-		terminal.exitPrivateMode();
-		System.exit(0);
+		char c = key.getCharacter();
+		if (c == 'q'){
+			terminal.exitPrivateMode();
+			System.exit(0);
+		}
+		p.moveViaInput(c);
+		// terminal.exitPrivateMode();
+		// System.exit(0);
 	}
 }
 }
