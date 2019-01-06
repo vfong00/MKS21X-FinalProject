@@ -5,7 +5,7 @@ public Player(int x, int y, Maze map) {
 	super(x,y,'@', map);
 }
 
-private boolean toMove(char dir){
+public boolean moveViaInput(char dir){
 	if(dir == 'w'){
 		if ( getMap().getMaze()[getX()][getY() - 1].getType().equals("entity") ) {
 			return false;
