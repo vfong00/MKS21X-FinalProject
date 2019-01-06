@@ -1,12 +1,14 @@
 public abstract class Entity implements Tileable{
   private int x, y;
   private char sprite;
+  private Maze map;
 
   public Entity(int x, int y, char sprite, Maze map) {
     this.x = x;
     this.y = y;
     this.sprite = sprite;
     map.setTile(x, y, this);
+    this.map = map;
   }
 
   public int getX() {
