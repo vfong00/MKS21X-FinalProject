@@ -32,13 +32,17 @@ public static void main(String[] args) throws IOException {
 		// maze.printMaze(terminal);
 		terminal.setCursorPosition(0, 0);
 		maze.printMaze(terminal);
+
 		try {
 			Thread.sleep(2000);
 		} catch (Exception e){}
+
 		terminal.clearScreen();
+
 		try {
 			Thread.sleep(2000);
 		} catch (Exception e){}
+		
 		p.moveTo(11, 15, maze);
 		maze.printMaze(terminal);
 
