@@ -35,6 +35,12 @@ public static void main(String[] args) throws IOException {
 		try {
 			Thread.sleep(2000);
 		} catch (Exception e){}
+		terminal.clearScreen();
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e){}
+		p.moveTo(11, 15, maze);
+		maze.printMaze(terminal);
 
 		KeyStroke key = terminal.readInput();
 		terminal.exitPrivateMode();
