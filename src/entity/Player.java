@@ -1,6 +1,6 @@
 public class Player extends Entity {
-  public Player() {
-    super(10,10,'@');
+  public Player(int x, int y, Maze map) {
+    super(x,y,'@', map);
   }
 
 }
