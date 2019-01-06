@@ -2,6 +2,7 @@
 making a roguelike game
 
 ## linux
-compile with javac -cp :../lib/lanterna.jar: Menu.java
+hi vincent
+compile with javac -cp :../../lib/lanterna.jar:../game:../maze:../entity:Whatever.java
 
-run with java -cp :../lib/lanterna.jar: Menu
+run with java -cp :../../lib/lanterna.jar:../game:../maze:../entity:Whatever
