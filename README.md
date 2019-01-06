@@ -34,4 +34,7 @@ not an Entity to move onto.
 
 The majority of the work today is to ease up development later down the line.
 
+edit: yeah the branch is called terrainGeneration but the refactoring was more
+pressing in my opinion. I'll do the dungeon generation tomorrow :P
+
 ~moody
