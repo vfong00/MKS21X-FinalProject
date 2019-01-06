@@ -15,21 +15,18 @@ public static void main(String[] args) throws IOException {
         ExtendedTerminal terminal = new UnixTerminal();
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
-        // TextGraphics textGraphics = terminal.newTextGraphics();
 
-        // wall generation??
+
         for (int i = 15; i < 26; i++) {
-        	// textGraphics.setCharacter(12, i, '#');
         	new Wall(12, i, maze);
         }
 
-        // player movement
         Player p = new Player(10, 10, maze);
 
         boolean running = true;
 
 	while (running){
-		// maze.printMaze(terminal);
+
 		terminal.setCursorPosition(0, 0);
 		terminal.clearScreen();
 		maze.printMaze(terminal);
@@ -41,8 +38,6 @@ public static void main(String[] args) throws IOException {
 			System.exit(0);
 		}
 		p.moveViaInput(c);
-		// terminal.exitPrivateMode();
-		// System.exit(0);
 	}
 }
 }
