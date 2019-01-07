@@ -22,15 +22,16 @@ public static void main(String[] args) throws IOException {
         	new Wall(12, i, maze);
         }
 
-	g.generate();
-	char[][] gen = g.getGenerated();
-	for(int x = 0; x < 100; x++){
-		for(int y = 0; y < 30; y++){
-			if (gen[x][y] == '0'){
-				new Wall(x, y, maze);
-			}
-		}
-	}
+	// g.generate();
+	// char[][] gen = g.getGenerated();
+	// for(int x = 0; x < 100; x++){
+	// 	for(int y = 0; y < 30; y++){
+	// 		if (gen[x][y] == '0'){
+	// 			new Wall(x, y, maze);
+	// 		}
+	// 	}
+	// }
+	maze.calcGenerated(g, maze);
 
 	// game crashes if border is overreached,
 	// this draws in border walls
@@ -65,18 +66,19 @@ public static void main(String[] args) throws IOException {
 		//test code for on the fly generation
 		if (c == 'p'){
 			terminal.clearScreen();
-			g.generate();
-			gen = g.getGenerated();
-			for(int x = 0; x < 100; x++){
-				for(int y = 0; y < 30; y++){
-					if (gen[x][y] == '0'){
-						maze.setTile(x, y, new Wall(x, y, maze));
-					}
-					else{
-						maze.setTile(x, y, new Air(x, y));
-					}
-				}
-			}
+			maze.calcGenerated(g, maze);
+			// g.generate();
+			// gen = g.getGenerated();
+			// for(int x = 0; x < 100; x++){
+			// 	for(int y = 0; y < 30; y++){
+			// 		if (gen[x][y] == '0'){
+			// 			maze.setTile(x, y, new Wall(x, y, maze));
+			// 		}
+			// 		else{
+			// 			maze.setTile(x, y, new Air(x, y));
+			// 		}
+			// 	}
+			// }
 		}
 		p.moveViaInput(c);
 	}

@@ -40,4 +40,19 @@ public void printMaze(Terminal t) throws IOException{
 	}
 }
 
+public void calcGenerated(Generation g, Maze maze){
+	g.generate();
+	char[][] gen = g.getGenerated();
+	for(int x = 0; x < 100; x++){
+		for(int y = 0; y < 30; y++){
+			if (gen[x][y] == '0'){
+				maze.setTile(x, y, new Wall(x, y, maze));
+			}
+			else{
+				maze.setTile(x, y, new Air(x, y));
+			}
+		}
+	}
+}
+
 }
