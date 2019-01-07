@@ -12,6 +12,7 @@ public class Nethack {
 
 public static void main(String[] args) throws IOException {
         Maze maze = new Maze();
+	Generation g = new Generation(5);
         ExtendedTerminal terminal = new UnixTerminal();
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
@@ -20,6 +21,16 @@ public static void main(String[] args) throws IOException {
         for (int i = 15; i < 26; i++) {
         	new Wall(12, i, maze);
         }
+
+	g.generate();
+	char[][] gen = g.getGenerated();
+	for(int x = 0; x < 100; x++){
+		for(int y = 0; y < 30; y++){
+			if (gen[x][y] == '0'){
+				new Wall(x, y, maze);
+			}
+		}
+	}
 
 	// game crashes if border is overreached,
 	// this draws in border walls
