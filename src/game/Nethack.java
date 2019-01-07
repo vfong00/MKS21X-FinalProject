@@ -4,8 +4,11 @@ import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.terminal.ansi.*;
 import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
-import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.graphics.*;
+import com.googlecode.lanterna.screen.*;
 import java.io.IOException;
+import com.googlecode.lanterna.TerminalSize.*;
+import com.googlecode.lanterna.TextCharacter.*;
 import java.util.Random;
 
 public class Nethack {
@@ -16,6 +19,7 @@ public static void main(String[] args) throws IOException {
         ExtendedTerminal terminal = new UnixTerminal();
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
+	ScreenBuffer s = new ScreenBuffer(new TerminalSize(100, 40), new TextCharacter(' '));
 
 
         for (int i = 15; i < 26; i++) {
