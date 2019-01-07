@@ -1,22 +1,30 @@
 public abstract class Entity {
-  private int x, y;
-  private char sprite;
+        private int x, y;
+        private char sprite;
 
-  public Entity(int x, int y, char sprite) {
-    this.x = x;
-    this.y = y;
-    this.sprite = sprite;
-  }
+        public Entity(int x, int y, char sprite) {
+                this.x = x;
+                this.y = y;
+                this.sprite = sprite;
+        }
 
-  public int getX() {
-    return x;
-  }
+        public int getX() {
+                return x;
+        }
 
-  public int getY() {
-    return y;
-  }
+        public int getY() {
+                return y;
+        }
 
-  public char getSprite() {
-    return sprite;
-  }
+        public char getSprite() {
+                return sprite;
+        }
+
+        public void moveX(int inc) {
+                x += inc;
+        }
+
+        public void moveY(int inc) {
+                y += inc;
+        }
 }
