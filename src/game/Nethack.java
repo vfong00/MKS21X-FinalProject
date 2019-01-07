@@ -13,18 +13,20 @@ public class Nethack {
 public static void main(String[] args) throws IOException {
         Maze maze = new Maze();
         ExtendedTerminal terminal = new UnixTerminal();
+        terminal.setTerminalSize(140,40);
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
         TextGraphics textGraphics = terminal.newTextGraphics();
 
         // wall generation??
         for (int i = 15; i < 26; i++) {
-        	// textGraphics.setCharacter(12, i, '#');
-        	maze.setTile(12, i, new Wall(12, i));
+        	textGraphics.setCharacter(12, i, '#');
+        	maze.setTile(15, i, new Wall(15, i));
         }
 
         // player movement
-        Player p = new Player();
+        Player p = new Player(10,10);
+        maze.setTile(p.getX(),p.getY(), p);
 
         int x = p.getX();
         int y = p.getY();
@@ -44,26 +46,42 @@ public static void main(String[] args) throws IOException {
 			System.exit(0);
 		}
 
-		if ((key.getCharacter().equals('a')) && (textGraphics.getCharacter(x - 1, y) == null)) {
+		if ((key.getCharacter().equals('a')) && (maze[x - 1][y] == null)) {
+                        p.moveX(-1);
+                        maze.setTile(x - 1,y,p);
+                        maze.setTile(x,y,null);
+
 			terminal.setCursorPosition(x,y);
 			terminal.putCharacter(' ');
 			x--;
 		}
 
-		if ((key.getCharacter().equals('d')) && (textGraphics.getCharacter(x + 1, y) == null)) {
+		if ((key.getCharacter().equals('d')) && (maze[x + 1][y] == null)) {
+                        p.moveX(1);
+                        maze.setTile(x + 1,y,p);
+                        maze.setTile(x,y,null);
+
 			terminal.setCursorPosition(x,y);
 			terminal.putCharacter(' ');
 			x++;
 		}
 
-		if ((key.getCharacter().equals('w')) && (textGraphics.getCharacter(x, y - 1) == null)) {
-			terminal.setCursorPosition(x,y);
+		if ((key.getCharacter().equals('w')) && (maze[x][y - 1] == null)) {
+                        p.moveY(-1);
+                        maze.setTile(x,y - 1,p);
+                        maze.setTile(x,y,null);
+
+                        terminal.setCursorPosition(x,y);
 			terminal.putCharacter(' ');
 			y--;
 		}
 
-		if ((key.getCharacter().equals('s')) && (textGraphics.getCharacter(x, y + 1) == null)) {
-			terminal.setCursorPosition(x,y);
+		if ((key.getCharacter().equals('s')) && (maze[x][y + 1] == null)) {
+                        p.moveY(1);
+                        maze.setTile(x,y + 1,p);
+                        maze.setTile(x,y,null);
+
+                        terminal.setCursorPosition(x,y);
 			terminal.putCharacter(' ');
 			y++;
 		}
