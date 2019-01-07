@@ -61,6 +61,23 @@ public static void main(String[] args) throws IOException {
 			terminal.exitPrivateMode();
 			System.exit(0);
 		}
+
+		//test code for on the fly generation
+		if (c == 'p'){
+			terminal.clearScreen();
+			g.generate();
+			gen = g.getGenerated();
+			for(int x = 0; x < 100; x++){
+				for(int y = 0; y < 30; y++){
+					if (gen[x][y] == '0'){
+						maze.setTile(x, y, new Wall(x, y, maze));
+					}
+					else{
+						maze.setTile(x, y, new Air(x, y));
+					}
+				}
+			}
+		}
 		p.moveViaInput(c);
 	}
 }
