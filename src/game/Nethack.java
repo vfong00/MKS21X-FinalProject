@@ -64,6 +64,7 @@ public static void main(String[] args) throws IOException {
 		}
 
 		// ask for the keyStroke once, then feed into all the "feeder" functions
+		try{Thread.sleep(50);}catch(Exception e){}
 		KeyStroke key = terminal.readInput();
 		char c = key.getCharacter();
 		if (c == 'q'){
