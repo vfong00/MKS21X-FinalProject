@@ -46,6 +46,7 @@ public static void main(String[] args) throws IOException {
 	}
 
         Player p = new Player(10, 10, maze);
+        Monster m = new Monster(20, 20, 'Q', maze);
 
         boolean running = true;
 	boolean init = false;
@@ -84,6 +85,7 @@ public static void main(String[] args) throws IOException {
 			// }
 		}
 		p.moveViaInput(c);
+                m.nextMove();
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
 	}
