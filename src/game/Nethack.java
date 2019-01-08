@@ -24,9 +24,9 @@ public static void main(String[] args) throws IOException {
 	s.startScreen();
 
 
-        for (int i = 15; i < 26; i++) {
-        	new Wall(12, i, maze);
-        }
+        // for (int i = 15; i < 26; i++) {
+        // 	new Wall(12, i, maze);
+        // }
 
 	// g.generate();
 	// char[][] gen = g.getGenerated();
@@ -69,8 +69,22 @@ public static void main(String[] args) throws IOException {
 
 		//test code for on the fly generation
 		if (c == 'p'){
+			g = new Generation(6);
+			maze.clearMaze();
 			terminal.clearScreen();
 			maze.calcGenerated(g, maze);
+			for (int x = 0; x < 100; x++){
+				for (int y = 0; y < 30; y++){
+					if (x == 0 || x == 99){
+						new Wall(x, y, maze);
+					}
+					if (y == 0 || y == 29){
+						new Wall(x, y, maze);
+					}
+				}
+			}
+			p = new Player(10, 10, maze);
+			s.refresh(Screen.RefreshType.AUTOMATIC);
 			// g.generate();
 			// gen = g.getGenerated();
 			// for(int x = 0; x < 100; x++){

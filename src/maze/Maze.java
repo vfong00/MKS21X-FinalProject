@@ -23,6 +23,15 @@ public Maze(){
 	}
 }
 
+public void clearMaze(){
+	for (int x = 0; x < 100; x++){
+		for (int y = 0; y < 30; y++){
+			// initally make everything air
+			maze[x][y] = new Air(x, y);
+		}
+	}
+}
+
 public Tileable[][] getMaze(){
 	return maze;
 }
