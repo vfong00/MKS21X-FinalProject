@@ -9,7 +9,7 @@ public boolean moveViaInput(char dir){
 	if(dir == 'w'){
 		//get the locally linked version of map and it's internal maze
 		//check for it's neighbor, and act accordingly
-		if ( getMap().getMaze()[getX()][getY() - 1].getType().equals("entity") ) {
+		if (getMap().getMaze()[getX()][getY() - 1].getType().equals("entity") ) {
 			return false;
 		}
 		moveTo(getX(), getY() - 1, getMap());

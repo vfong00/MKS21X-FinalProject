@@ -17,11 +17,6 @@ public static void main(String[] args) throws IOException {
         terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
 
-
-        for (int i = 15; i < 26; i++) {
-        	new Wall(12, i, maze);
-        }
-
 	// g.generate();
 	// char[][] gen = g.getGenerated();
 	// for(int x = 0; x < 100; x++){
