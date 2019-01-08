@@ -17,9 +17,11 @@ public static void main(String[] args) throws IOException {
         Maze maze = new Maze();
 	Generation g = new Generation(5);
         ExtendedTerminal terminal = new UnixTerminal();
-        terminal.enterPrivateMode();
+	System.out.println("aaaa");
+        // terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
-	ScreenBuffer s = new ScreenBuffer(new TerminalSize(100, 40), new TextCharacter(' '));
+	TerminalScreen s = new TerminalScreen(terminal);
+	s.startScreen();
 
 
         for (int i = 15; i < 26; i++) {
@@ -55,10 +57,8 @@ public static void main(String[] args) throws IOException {
         boolean running = true;
 
 	while (running){
-		terminal.setCursorPosition(0, 0);
-		terminal.clearScreen();
-		maze.printMaze(terminal);
-
+		maze.printMaze(s);
+		s.refresh(Screen.RefreshType.AUTOMATIC);
 		// ask for the keyStroke once, then feed into all the "feeder" functions
 		KeyStroke key = terminal.readInput();
 		char c = key.getCharacter();
@@ -85,6 +85,8 @@ public static void main(String[] args) throws IOException {
 			// }
 		}
 		p.moveViaInput(c);
+
+		// s.refresh(Screen.RefreshType.AUTOMATIC);
 	}
 }
 }
