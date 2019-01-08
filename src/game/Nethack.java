@@ -6,6 +6,7 @@ import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.*;
+import java.util.ArrayList;
 import java.io.IOException;
 import java.util.Random;
 
@@ -45,8 +46,10 @@ public static void main(String[] args) throws IOException {
 		}
 	}
 
+        ArrayList<Monster> monsters = new ArrayList<Monster>();
         Player p = new Player(10, 10, maze);
         Monster m = new Monster(20, 20, 10, 'Q', maze);
+        monsters.add(m);
 
         boolean running = true;
 	boolean init = false;
@@ -88,6 +91,11 @@ public static void main(String[] args) throws IOException {
                 m.nextMove();
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
+                for (Monster monster : monsters) {
+                        if (monster.getHP() <= 0) {
+                                monster.die();
+                        }
+                }
 	}
 }
 }

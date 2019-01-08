@@ -20,7 +20,7 @@ public boolean moveViaInput(char dir) {
 	}
 
 	if(dir == 'a'){
-		if (getMap().getMaze()[getX() - 1][getY()].getType() .equals("monster")){
+		if (getMap().getMaze()[getX() - 1][getY()].getType().equals("monster")){
 			engage(getMap().getMaze()[getX() - 1][getY()]);
 			return false;
 		} else if (getMap().getMaze()[getX() - 1][getY()].getType().equals("entity")) {
@@ -31,7 +31,7 @@ public boolean moveViaInput(char dir) {
 	}
 
 	if(dir == 's'){
-		if (getMap().getMaze()[getX()][getY() + 1].getType() .equals("entity")){
+		if (getMap().getMaze()[getX()][getY() + 1].getType().equals("monster")){
 			engage(getMap().getMaze()[getX()][getY() + 1]);
 			return false;
 		} else if (getMap().getMaze()[getX()][getY() + 1].getType().equals("entity")) {
@@ -42,7 +42,7 @@ public boolean moveViaInput(char dir) {
 	}
 
 	if(dir == 'd'){
-		if (getMap().getMaze()[getX() + 1][getY()].getType() .equals("monster")){
+		if (getMap().getMaze()[getX() + 1][getY()].getType().equals("monster")){
 			engage(getMap().getMaze()[getX() + 1][getY()]);
 			return false;
 		} else if (getMap().getMaze()[getX() + 1][getY()].getType().equals("entity")) {

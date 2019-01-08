@@ -22,7 +22,11 @@ public String getType(){
 }
 
 public void decHP(int amt) {
-	
+
+}
+
+public int getHP() {
+	return -1;
 }
 
 }

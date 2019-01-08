@@ -9,6 +9,7 @@ public abstract class Entity implements Tileable{
     this.sprite = sprite;
     map.setTile(x, y, this);
     this.map = map;
+    this.hp = hp;
   }
 
   public int getX() {
@@ -40,5 +41,13 @@ public abstract class Entity implements Tileable{
 
   public void decHP(int amt) {
           hp -= amt;
+  }
+
+  public int getHP() {
+          return hp;
+  }
+
+  public void die() {
+         map.setTile(this.x, this.y, new Air(this.x, this.y));
   }
 }
