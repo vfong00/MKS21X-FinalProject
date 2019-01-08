@@ -97,7 +97,7 @@ public static void main(String[] args) throws IOException {
 			}
 		}
 		p.moveViaInput(c);
-		s.refresh(Screen.RefreshType.AUTOMATIC);
+		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
 	}
 }
