@@ -1,5 +1,5 @@
 public abstract class Entity implements Tileable{
-  private int x, y;
+  private int x, y, hp;
   private char sprite;
   private Maze map;
 
