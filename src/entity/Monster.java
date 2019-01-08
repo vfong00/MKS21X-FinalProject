@@ -22,4 +22,8 @@ public void nextMove() {
 	}
 }
 
+public String getType(){
+	return "monster";
+}
+
 }

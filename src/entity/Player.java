@@ -5,11 +5,14 @@ public Player(int x, int y, Maze map) {
 	super(x,y,'@', map);
 }
 
-public boolean moveViaInput(char dir){
+public boolean moveViaInput(char dir) {
 	if(dir == 'w'){
 		//get the locally linked version of map and it's internal maze
 		//check for it's neighbor, and act accordingly
-		if (getMap().getMaze()[getX()][getY() - 1].getType().equals("entity") ) {
+		if (getMap().getMaze()[getX()][getY() - 1].getType().equals("monster")) {
+			engage(getMap().getMaze()[getX()][getY() - 1]);
+			return false;
+		} else if (getMap().getMaze()[getX()][getY() - 1].getType().equals("entity")) {
 			return false;
 		}
 		moveTo(getX(), getY() - 1, getMap());
@@ -17,7 +20,10 @@ public boolean moveViaInput(char dir){
 	}
 
 	if(dir == 'a'){
-		if (getMap().getMaze()[getX() - 1][getY()].getType() .equals("entity")){
+		if (getMap().getMaze()[getX() - 1][getY()].getType() .equals("monster")){
+			engage(getMap().getMaze()[getX() - 1][getY()]);
+			return false;
+		} else if (getMap().getMaze()[getX() - 1][getY()].getType().equals("entity")) {
 			return false;
 		}
 		moveTo(getX() - 1, getY(), getMap());
@@ -26,6 +32,9 @@ public boolean moveViaInput(char dir){
 
 	if(dir == 's'){
 		if (getMap().getMaze()[getX()][getY() + 1].getType() .equals("entity")){
+			engage(getMap().getMaze()[getX()][getY() + 1]);
+			return false;
+		} else if (getMap().getMaze()[getX()][getY() + 1].getType().equals("entity")) {
 			return false;
 		}
 		moveTo(getX(), getY() + 1, getMap());
@@ -33,13 +42,20 @@ public boolean moveViaInput(char dir){
 	}
 
 	if(dir == 'd'){
-		if (getMap().getMaze()[getX() + 1][getY()].getType() .equals("entity")){
+		if (getMap().getMaze()[getX() + 1][getY()].getType() .equals("monster")){
+			engage(getMap().getMaze()[getX() + 1][getY()]);
+			return false;
+		} else if (getMap().getMaze()[getX() + 1][getY()].getType().equals("entity")) {
 			return false;
 		}
 		moveTo(getX() + 1, getY(), getMap());
 		return true;
 	}
 	return false;
+}
+
+public void engage(Tileable mons) {
+
 }
 
 }
