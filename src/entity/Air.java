@@ -21,4 +21,8 @@ public String getType(){
 	return "air";
 }
 
+public void decHP(int amt) {
+	
+}
+
 }

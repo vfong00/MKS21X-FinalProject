@@ -2,7 +2,7 @@ public class Player extends Entity {
 
 
 public Player(int x, int y, Maze map) {
-	super(x,y,'@', map);
+	super(x,y,100,'@', map);
 }
 
 public boolean moveViaInput(char dir) {
@@ -55,7 +55,7 @@ public boolean moveViaInput(char dir) {
 }
 
 public void engage(Tileable mons) {
-
+	mons.decHP(6);
 }
 
 }

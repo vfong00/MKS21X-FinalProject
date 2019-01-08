@@ -3,7 +3,7 @@ public abstract class Entity implements Tileable{
   private char sprite;
   private Maze map;
 
-  public Entity(int x, int y, char sprite, Maze map) {
+  public Entity(int x, int y, int hp, char sprite, Maze map) {
     this.x = x;
     this.y = y;
     this.sprite = sprite;
@@ -36,5 +36,9 @@ public abstract class Entity implements Tileable{
 
   public Maze getMap(){
 	return this.map;
+  }
+
+  public void decHP(int amt) {
+          hp -= amt;
   }
 }

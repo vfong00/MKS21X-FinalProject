@@ -3,8 +3,8 @@ import java.util.Random;
 public class Monster extends Entity {
 
 
-public Monster(int x, int y, char sprite, Maze map) {
-	super(x,y,sprite, map);
+public Monster(int x, int y, int hp, char sprite, Maze map) {
+	super(x,y,hp,sprite, map);
 }
 
 public void nextMove() {
