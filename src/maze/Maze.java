@@ -5,6 +5,7 @@ import com.googlecode.lanterna.terminal.ansi.*;
 import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.screen.*;
 import java.io.IOException;
 
 
@@ -30,12 +31,13 @@ public void setTile(int x, int y, Tileable toSet){
 	maze[x][y] = toSet;
 }
 
-public void printMaze(Terminal t) throws IOException{
+public void printMaze(TerminalScreen t) throws IOException{
 	for (int x = 0; x < 100; x++){
 		for (int y = 0; y < 30; y++){
-			t.setCursorPosition(x, y + 5);
-			char c = maze[x][y].getSprite();
-			t.putCharacter(c);
+			// t.setCursorPosition(x, y + 5);
+			// char c = maze[x][y].getSprite();
+			// t.putCharacter(c);
+			t.setCharacter(x, y + 5, new TextCharacter(maze[x][y].getSprite(), ANSI.DEFAULT, ANSI.DEFAULT));
 		}
 	}
 }
