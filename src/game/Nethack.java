@@ -22,29 +22,7 @@ public static void main(String[] args) throws IOException {
 	s.startScreen();
 	s.setCursorPosition(null);
 
-	// g.generate();
-	// char[][] gen = g.getGenerated();
-	// for(int x = 0; x < 100; x++){
-	// 	for(int y = 0; y < 30; y++){
-	// 		if (gen[x][y] == '0'){
-	// 			new Wall(x, y, maze);
-	// 		}
-	// 	}
-	// }
 	maze.calcGenerated(g, maze);
-
-	// game crashes if border is overreached,
-	// this draws in border walls
-	// for (int x = 0; x < 100; x++){
-	// 	for (int y = 0; y < 30; y++){
-	// 		if (x == 0 || x == 99){
-	// 			new Wall(x, y, maze);
-	// 		}
-	// 		if (y == 0 || y == 29){
-	// 			new Wall(x, y, maze);
-	// 		}
-	// 	}
-	// }
 
         ArrayList<Monster> monsters = new ArrayList<Monster>();
         Player p = new Player(10, 10, maze);
@@ -57,7 +35,6 @@ public static void main(String[] args) throws IOException {
 	while (running){
 
 		maze.printMaze(s);
-		// s.clear();
 		if (!init){
 			s.refresh(Screen.RefreshType.AUTOMATIC);
 		}
@@ -74,26 +51,9 @@ public static void main(String[] args) throws IOException {
 		if (c == 'p'){
 			terminal.clearScreen();
 			maze.calcGenerated(g, maze);
-			// g.generate();
-			// gen = g.getGenerated();
-			// for(int x = 0; x < 100; x++){
-			// 	for(int y = 0; y < 30; y++){
-			// 		if (gen[x][y] == '0'){
-			// 			maze.setTile(x, y, new Wall(x, y, maze));
-			// 		}
-			// 		else{
-			// 			maze.setTile(x, y, new Air(x, y));
-			// 		}
-			// 	}
-			// }
 		}
 		p.moveViaInput(c);
                 m.nextMove(monsters);
-		// for (Monster monster : monsters) {
-		// 	if (monster.getHP() <= 0) {
-		// 		monster.die();
-		// 	}
-		// }
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
 	}
