@@ -35,16 +35,16 @@ public static void main(String[] args) throws IOException {
 
 	// game crashes if border is overreached,
 	// this draws in border walls
-	for (int x = 0; x < 100; x++){
-		for (int y = 0; y < 30; y++){
-			if (x == 0 || x == 99){
-				new Wall(x, y, maze);
-			}
-			if (y == 0 || y == 29){
-				new Wall(x, y, maze);
-			}
-		}
-	}
+	// for (int x = 0; x < 100; x++){
+	// 	for (int y = 0; y < 30; y++){
+	// 		if (x == 0 || x == 99){
+	// 			new Wall(x, y, maze);
+	// 		}
+	// 		if (y == 0 || y == 29){
+	// 			new Wall(x, y, maze);
+	// 		}
+	// 	}
+	// }
 
         ArrayList<Monster> monsters = new ArrayList<Monster>();
         Player p = new Player(10, 10, maze);
