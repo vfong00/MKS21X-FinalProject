@@ -89,13 +89,13 @@ public static void main(String[] args) throws IOException {
 		}
 		p.moveViaInput(c);
                 m.nextMove();
+		for (Monster monster : monsters) {
+			if (monster.getHP() <= 0) {
+				monster.die();
+			}
+		}
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
-                for (Monster monster : monsters) {
-                        if (monster.getHP() <= 0) {
-                                monster.die();
-                        }
-                }
 	}
 }
 }
