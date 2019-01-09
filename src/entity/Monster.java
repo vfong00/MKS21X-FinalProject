@@ -8,7 +8,7 @@ public Monster(int x, int y, int hp, char sprite, Maze map) {
 	super(x,y,hp,sprite, map);
 }
 
-public void nextMove(ArrayList<Monster> t) {
+public void nextMove() {
 	Random rng = new Random();
 	int option = rng.nextInt(4);
 
@@ -22,10 +22,8 @@ public void nextMove(ArrayList<Monster> t) {
 		moveTo(getX() + 1,getY(), getMap());
 	}
 
-	for (Monster monster : t) {
-		if (monster.getHP() <= 0) {
-			monster.die();
-		}
+	if (this.getHP() <= 0) {
+		this.die();
 	}
 }
 

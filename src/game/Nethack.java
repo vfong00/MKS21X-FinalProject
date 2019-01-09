@@ -53,7 +53,9 @@ public static void main(String[] args) throws IOException {
 			maze.calcGenerated(g, maze);
 		}
 		p.moveViaInput(c);
-                m.nextMove(monsters);
+                for (Monster monster : monsters) {
+                                monster.nextMove();
+                }
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
 	}

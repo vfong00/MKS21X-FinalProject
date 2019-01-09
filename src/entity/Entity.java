@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Entity implements Tileable{
   private int x, y, hp;
   private char sprite;
