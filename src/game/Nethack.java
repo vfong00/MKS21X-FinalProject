@@ -88,12 +88,12 @@ public static void main(String[] args) throws IOException {
 			// }
 		}
 		p.moveViaInput(c);
-                m.nextMove();
-		for (Monster monster : monsters) {
-			if (monster.getHP() <= 0) {
-				monster.die();
-			}
-		}
+                m.nextMove(monsters);
+		// for (Monster monster : monsters) {
+		// 	if (monster.getHP() <= 0) {
+		// 		monster.die();
+		// 	}
+		// }
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
 	}

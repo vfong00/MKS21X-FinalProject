@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Monster extends Entity {
 
@@ -7,7 +8,7 @@ public Monster(int x, int y, int hp, char sprite, Maze map) {
 	super(x,y,hp,sprite, map);
 }
 
-public void nextMove() {
+public void nextMove(ArrayList<Monster> t) {
 	Random rng = new Random();
 	int option = rng.nextInt(4);
 
@@ -19,6 +20,12 @@ public void nextMove() {
 		moveTo(getX() - 1,getY(), getMap());
 	} else if (!getMap().getMaze()[getX() + 1][getY()].getType().equals("entity") ){
 		moveTo(getX() + 1,getY(), getMap());
+	}
+
+	for (Monster monster : t) {
+		if (monster.getHP() <= 0) {
+			monster.die();
+		}
 	}
 }
 
