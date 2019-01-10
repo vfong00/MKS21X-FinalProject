@@ -76,6 +76,16 @@ public static void main(String[] args) throws IOException {
 		if (c == 'p'){
 			terminal.clearScreen();
 			maze.calcGenerated(g, maze);
+                        for (int x = 0; x < 100; x++){
+                		for (int y = 0; y < 30; y++){
+                			if (x == 0 || x == 99){
+                				new Wall(x, y, maze);
+                			}
+                			if (y == 0 || y == 29){
+                				new Wall(x, y, maze);
+                			}
+                		}
+                	}
 		}
 		p.moveViaInput(c);
 		s.refresh(Screen.RefreshType.DELTA);
