@@ -63,7 +63,12 @@ public abstract class Entity implements Tileable{
 	  return this;
   }
 
+  public Collectible getCollectible() {
+          return null;
+  }
+
   public void die(){
 	  this.type = "air";
+          map.setTile(this.x, this.y, new Air(this.x, this.y));
   }
 }

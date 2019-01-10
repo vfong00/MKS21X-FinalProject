@@ -2,7 +2,7 @@ public class Player extends Entity {
 
 
 public Player(int x, int y, Maze map) {
-	super(x,y,100, 10, '@', map);
+	super(x,y,100, 9, '@', map);
 }
 
 
@@ -24,16 +24,24 @@ public boolean moveViaInput(char dir){
 	d = getMap().getMaze()[getX() + 1][getY()];
 
 	Entity we, ae, se, de;
+	Collectible wc, ac, sc, dc;
 	we = w.getEntity();
 	ae = a.getEntity();
 	se = s.getEntity();
 	de = d.getEntity();
+	wc = w.getCollectible();
+	ac = a.getCollectible();
+	sc = s.getCollectible();
+	dc = d.getCollectible();
+
 	if(dir == 'w'){
 		//get the locally linked version of map and it's internal maze
 		//check for it's neighbor, and act accordingly
 		if ( w.getType().equals("entity") ) {
 			damage(we);
 			return false;
+		} else if (w.getType().equals("collectible")) {
+
 		}
 		moveTo(getX(), getY() - 1, getMap());
 		return true;

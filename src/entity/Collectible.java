@@ -25,4 +25,12 @@ public String getType(){
 	return "collectible";
 }
 
+public Collectible getCollectible(){
+        return this;
+}
+
+public Entity getEntity(){
+        return null;
+}
+
 }
