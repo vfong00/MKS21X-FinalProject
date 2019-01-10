@@ -5,6 +5,7 @@ public abstract class Entity implements Tileable{
   private char sprite;
   private Maze map;
   private String type = "entity";
+  private boolean dead = false;
 
   public Entity(int x, int y, int hp, char sprite, Maze map) {
     this.x = x;
@@ -51,6 +52,7 @@ public abstract class Entity implements Tileable{
   }
 
   public void die() {
+	 this.dead = true;
          this.type = "air";
   }
 }

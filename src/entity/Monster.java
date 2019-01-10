@@ -11,7 +11,6 @@ public Monster(int x, int y, int hp, char sprite, Maze map) {
 public void nextMove() {
 	Random rng = new Random();
 	int option = rng.nextInt(4);
-	boolean dead = false;
 
 	if ((option == 0) && (!getMap().getMaze()[getX()][getY() + 1].getType().equals("entity"))) {
 		moveTo(getX(),getY() + 1, getMap());
