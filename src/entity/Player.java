@@ -6,10 +6,15 @@ public Player(int x, int y, Maze map) {
 }
 
 
-public void damage(Entity mons){
-	this.setHP(this.getHP() - mons.getDamage());
+public void damage(Entity e){
+	e.setHP(e.getHP() - this.getDamage());
+	if (e.getHP() <= 0){
+		e.die();
+		return;
+	}
+	this.setHP(this.getHP() - e.getDamage());
+	return;
 }
-
 
 public boolean moveViaInput(char dir){
 	Tileable w, a, s, d;
@@ -18,13 +23,16 @@ public boolean moveViaInput(char dir){
 	s = getMap().getMaze()[getX()][getY() + 1];
 	d = getMap().getMaze()[getX() + 1][getY()];
 
+	Entity we, ae, se, de;
+	we = w.getEntity();
+	ae = a.getEntity();
+	se = s.getEntity();
+	de = d.getEntity();
 	if(dir == 'w'){
 		//get the locally linked version of map and it's internal maze
 		//check for it's neighbor, and act accordingly
 		if ( w.getType().equals("entity") ) {
-			// w entity damage player
-			// check to see if momster is dead
-			// if monster is not dead, damage player
+			damage(we);
 			return false;
 		}
 		moveTo(getX(), getY() - 1, getMap());
@@ -32,7 +40,8 @@ public boolean moveViaInput(char dir){
 	}
 
 	if(dir == 'a'){
-		if (a.getType().equals("entity")){
+		if ( a.getType().equals("entity") ) {
+			damage(ae);
 			return false;
 		}
 		moveTo(getX() - 1, getY(), getMap());
@@ -40,7 +49,8 @@ public boolean moveViaInput(char dir){
 	}
 
 	if(dir == 's'){
-		if (s.getType() .equals("entity")){
+		if ( s.getType().equals("entity") ) {
+			damage(se);
 			return false;
 		}
 		moveTo(getX(), getY() + 1, getMap());
@@ -49,6 +59,7 @@ public boolean moveViaInput(char dir){
 
 	if(dir == 'd'){
 		if (d.getType() .equals("entity")){
+			damage(de);
 			return false;
 		}
 		moveTo(getX() + 1, getY(), getMap());
