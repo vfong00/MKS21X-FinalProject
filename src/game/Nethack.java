@@ -51,6 +51,7 @@ public static void main(String[] args) throws IOException {
 	}
 
         Player p = new Player(10, 10, maze);
+	Monster m = new Monster(11, 11, 10, 10, maze);
 
         boolean running = true;
 	boolean init = false;
@@ -75,18 +76,6 @@ public static void main(String[] args) throws IOException {
 		if (c == 'p'){
 			terminal.clearScreen();
 			maze.calcGenerated(g, maze);
-			// g.generate();
-			// gen = g.getGenerated();
-			// for(int x = 0; x < 100; x++){
-			// 	for(int y = 0; y < 30; y++){
-			// 		if (gen[x][y] == '0'){
-			// 			maze.setTile(x, y, new Wall(x, y, maze));
-			// 		}
-			// 		else{
-			// 			maze.setTile(x, y, new Air(x, y));
-			// 		}
-			// 	}
-			// }
 		}
 		p.moveViaInput(c);
 		s.refresh(Screen.RefreshType.DELTA);
