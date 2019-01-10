@@ -21,4 +21,8 @@ public String getType(){
 	return "air";
 }
 
+public Entity getEntity(){
+	return null;
+}
+
 }
