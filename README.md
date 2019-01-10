@@ -43,3 +43,10 @@ walls either impossibly high health or a regeneration factor (or not and make th
 environment distructible)
 
 ~moody
+
+## devlog- moody
+### 01-10-19
+There were some issues in the branch screenPort where the terrainGeneration would
+print onto the terminal, but the underlying data structure of terrainGeneration
+would intermix with the proper terrain. This led to me making a new brach to work
+ground up
