@@ -4,6 +4,7 @@ public abstract class Entity implements Tileable{
   private Maze map;
   private int hp;
   private int damage;
+  private String type = "entity";
 
   public Entity(int x, int y, int hp, int damage, char sprite, Maze map) {
     this.x = x;
@@ -28,7 +29,7 @@ public abstract class Entity implements Tileable{
   }
 
   public String getType(){
-    return "entity";
+    return type;
   }
 
   public int getHP(){
@@ -56,5 +57,13 @@ public abstract class Entity implements Tileable{
 
   public Maze getMap(){
 	return this.map;
+  }
+
+  public Entity getEntity(){
+	  return this;
+  }
+
+  public void die(){
+	  this.type = "air";
   }
 }
