@@ -53,6 +53,12 @@ public void calcGenerated(Generation g, Maze maze){
 			else{
 				maze.setTile(x, y, new Air(x, y));
 			}
+			if (x == 0 || x == 99){
+				new Wall(x, y, maze);
+			}
+			if (y == 0 || y == 29){
+				new Wall(x, y, maze);
+			}
 		}
 	}
 }
