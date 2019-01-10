@@ -22,8 +22,8 @@ public void nextMove() {
 		moveTo(getX() + 1,getY(), getMap());
 	}
 
-	if (this.getHP() <= 0 && !dead) {
-		dead = true;
+	if (this.getHP() <= 0 && !this.getDead()) {
+		this.setDead(true);
 		this.die();
 	}
 }

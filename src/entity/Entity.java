@@ -51,6 +51,14 @@ public abstract class Entity implements Tileable{
           return hp;
   }
 
+  public boolean getDead(){
+	  return this.dead;
+  }
+
+  public void setDead(boolean amidead){
+	  this.dead = amidead;
+  }
+
   public void die() {
 	 this.dead = true;
          this.type = "air";
