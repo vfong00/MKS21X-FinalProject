@@ -26,8 +26,12 @@ public static void main(String[] args) throws IOException {
 
         ArrayList<Monster> monsters = new ArrayList<Monster>();
         Player p = new Player(10, 10, maze);
-        Monster m = new Monster(20, 20, 10, 'Q', maze);
-        monsters.add(m);
+        Monster m0 = new Monster(20, 20, 10, 'Q', maze);
+        Monster m1 = new Monster(25, 25, 10, 'X', maze);
+        Monster m2 = new Monster(35, 10, 10, 'Z', maze);
+        monsters.add(m0);
+        monsters.add(m1);
+        monsters.add(m2);
 
         boolean running = true;
 	boolean init = false;
