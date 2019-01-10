@@ -4,6 +4,7 @@ public abstract class Entity implements Tileable{
   private int x, y, hp;
   private char sprite;
   private Maze map;
+  private String type = "entity";
 
   public Entity(int x, int y, int hp, char sprite, Maze map) {
     this.x = x;
