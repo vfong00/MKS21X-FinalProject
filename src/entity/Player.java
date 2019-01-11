@@ -23,6 +23,10 @@ public String getToPrint() {
 	return toPrint;
 }
 
+public void setToPrint(String s) {
+	toPrint = s;
+}
+
 public boolean moveViaInput(char dir){
 	toPrint = "";
 
