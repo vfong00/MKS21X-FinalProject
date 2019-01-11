@@ -4,11 +4,12 @@ private int x, y;
 private char sprite;
 private String name;
 
-public Collectible(int x, int y, char sprite, String name) {
+public Collectible(int x, int y, char sprite, String name, Maze map) {
         this.x = x;
         this.y = y;
         this.sprite = sprite;
         this.name = name;
+        map.setTile(x, y, this);
 }
 
 public int getX() {
