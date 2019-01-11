@@ -33,4 +33,5 @@ public Entity getEntity(){
         return null;
 }
 
+public abstract void statusEffect(Player p);
 }

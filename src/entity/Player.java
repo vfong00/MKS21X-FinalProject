@@ -8,7 +8,7 @@ public Player(int x, int y, Maze map) {
 
 
 public void damage(Entity e){
-	toPrint = this.getName() + " hit " + e.getName() + " for " + this.getDamage() + " damage. " + e.getName() + " hit " + this.getName() + " for " + e.getDamage() + " damage.";
+	toPrint = "You hit " + e.getName() + " for " + this.getDamage() + " damage. " + e.getName() + " hit you for " + e.getDamage() + " damage.";
 	e.setHP(e.getHP() - this.getDamage());
 	if (e.getHP() <= 0){
 		e.die();
@@ -48,10 +48,9 @@ public boolean moveViaInput(char dir){
 		//check for it's neighbor, and act accordingly
 		if ( w.getType().equals("entity") ) {
 			damage(we);
-			System.out.println(toPrint);
 			return false;
 		} else if (w.getType().equals("collectible")) {
-
+			wc.statusEffect(this);
 		}
 		moveTo(getX(), getY() - 1, getMap());
 		return true;
@@ -61,6 +60,8 @@ public boolean moveViaInput(char dir){
 		if ( a.getType().equals("entity") ) {
 			damage(ae);
 			return false;
+		} else if (a.getType().equals("collectible")) {
+			ac.statusEffect(this);
 		}
 		moveTo(getX() - 1, getY(), getMap());
 		return true;
@@ -70,6 +71,8 @@ public boolean moveViaInput(char dir){
 		if ( s.getType().equals("entity") ) {
 			damage(se);
 			return false;
+		} else if (s.getType().equals("collectible")) {
+			sc.statusEffect(this);
 		}
 		moveTo(getX(), getY() + 1, getMap());
 		return true;
@@ -79,6 +82,8 @@ public boolean moveViaInput(char dir){
 		if (d.getType() .equals("entity")){
 			damage(de);
 			return false;
+		} else if (d.getType().equals("collectible")) {
+			dc.statusEffect(this);
 		}
 		moveTo(getX() + 1, getY(), getMap());
 		return true;
