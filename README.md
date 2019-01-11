@@ -46,6 +46,10 @@ environment destructible)
 
 ~moody
 
+## devlog- moody
+### 01-10-19
+
+
 ## devlog - Vincent
 ### 01-04-19
 + made extremely basic files (Nethack game file, Entity abstract class, Player)
