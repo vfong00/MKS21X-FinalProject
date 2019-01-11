@@ -47,8 +47,32 @@ environment destructible)
 ~moody
 
 ## devlog- moody
-### 01-10-19
+### 01-06-19
+Terrain generation! I used a seperate data structure to handle the generation, and
+copied over the output of that into the maze, rather than having the maze serve both
+purposes at once.
 
+## devlog- moody
+### 01-07-19
+Ported into screen, moved relevant generationFunctions into MazeGeneration
+
+## devlog- moody
+### 01-08-19
+big dead lmao
+
+## devlog- moody
+### 01-09-19
+Vincent worked on monsters, funny bug where monsters would not die, but become
+moving Air tiles.
+
+## devlog- moody
+### 01-10-19
+There were some issues in the branch screenPort where the terrainGeneration would
+print onto the terminal, but the underlying data structure of terrainGeneration
+would intermix with the proper terrain. This led to me making a new brach to work
+ground up, from the point where terrain eneration last worked, and immediately start
+moving that work into Screen. After that was sorted out, I began moving around
+functions into their respective objects.
 
 ## devlog - Vincent
 ### 01-04-19
