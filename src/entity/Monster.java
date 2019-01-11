@@ -12,9 +12,8 @@ public Monster(int x, int y, int hp, int damage, String name, Maze map){
 public void nextMove() {
 	Random rng = new Random();
 	int option = rng.nextInt(4);
-	boolean dead = false;
 
-	if (!dead) {
+	if (!this.getDead()) {
 		if ((option == 0) && (!getMap().getMaze()[getX()][getY() + 1].getType().equals("entity"))) {
 			moveTo(getX(),getY() + 1, getMap());
 		} else if ((option == 1) && (!getMap().getMaze()[getX()][getY() - 1].getType().equals("entity"))) {
@@ -26,7 +25,6 @@ public void nextMove() {
 		}
 
 		if (this.getHP() <= 0) {
-			dead = true;
 			this.die();
 		}
 	}

@@ -6,6 +6,7 @@ public abstract class Entity implements Tileable{
   private int damage;
   private String type = "entity";
   private String name;
+  private boolean dead = false;
 
   public Entity(int x, int y, int hp, int damage, char sprite, String name, Maze map) {
     this.x = x;
@@ -69,12 +70,17 @@ public abstract class Entity implements Tileable{
 	  return this;
   }
 
+  public boolean getDead() {
+          return dead;
+  }
+
   public Collectible getCollectible() {
           return null;
   }
 
   public void die(){
-	  this.type = "air";
           map.setTile(this.x, this.y, new Air(this.x, this.y));
+	  this.type = "air";
+          this.dead = true;
   }
 }
