@@ -5,8 +5,9 @@ public abstract class Entity implements Tileable{
   private int hp;
   private int damage;
   private String type = "entity";
+  private String name;
 
-  public Entity(int x, int y, int hp, int damage, char sprite, Maze map) {
+  public Entity(int x, int y, int hp, int damage, char sprite, String name, Maze map) {
     this.x = x;
     this.y = y;
     this.sprite = sprite;
@@ -14,6 +15,11 @@ public abstract class Entity implements Tileable{
     this.map = map;
     this.hp = hp;
     this.damage = damage;
+    this.name = name;
+  }
+
+  public String getName() {
+          return name;
   }
 
   public int getX() {

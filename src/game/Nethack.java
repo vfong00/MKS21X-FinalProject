@@ -11,6 +11,15 @@ import java.util.Random;
 
 public class Nethack {
 
+public static void putString(int r, int c,TerminalScreen t, String s) throws IOException{
+	t.setCursorPosition(new TerminalPosition(c,r));
+	for(int i = 0; i < s.length();i++){
+                t.setCharacter(r,c,new TextCharacter(s.charAt(i)));
+                r++;
+        }
+        t.setCursorPosition(null);
+}
+
 public static void main(String[] args) throws IOException {
         Maze maze = new Maze();
 	Generation g = new Generation(5);
@@ -51,10 +60,12 @@ public static void main(String[] args) throws IOException {
 	}
 
         Player p = new Player(10, 10, maze);
-	Monster m = new Monster(11, 11, 10, 10, maze);
+	Monster m = new Monster(11, 11, 10, 5, "Skeletor", maze);
 
         boolean running = true;
 	boolean init = false;
+
+        putString(0,0,s,"begin game");
 
 	while (running){
 
@@ -88,8 +99,10 @@ public static void main(String[] args) throws IOException {
                 	}
 		}
 		p.moveViaInput(c);
+                m.nextMove();
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
+                putString(0,0,s,p.getToPrint());
 	}
 }
 }
