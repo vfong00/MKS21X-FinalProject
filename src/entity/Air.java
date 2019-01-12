@@ -25,4 +25,8 @@ public Entity getEntity(){
 	return null;
 }
 
+public Collectible getCollectible() {
+	return null;
+}
+
 }

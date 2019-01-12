@@ -6,4 +6,5 @@ public interface Tileable{
 	String getType();
 	char getSprite();
 	Entity getEntity();
+	Collectible getCollectible();
 }
