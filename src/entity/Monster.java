@@ -14,13 +14,13 @@ public void nextMove() {
 	int option = rng.nextInt(4);
 
 	if (!this.getDead()) {
-		if ((option == 0) && (!getMap().getMaze()[getX()][getY() + 1].getType().equals("entity"))) {
+		if ((option == 0) && (!getMap().getMaze()[getX()][getY() + 1].getType().equals("entity")) && (!getMap().getMaze()[getX()][getY() + 1].getType().equals("collectible"))) {
 			moveTo(getX(),getY() + 1, getMap());
-		} else if ((option == 1) && (!getMap().getMaze()[getX()][getY() - 1].getType().equals("entity"))) {
+		} else if ((option == 1) && (!getMap().getMaze()[getX()][getY() - 1].getType().equals("entity")) && (!getMap().getMaze()[getX()][getY() - 1].getType().equals("collectible"))) {
 			moveTo(getX(),getY() - 1, getMap());
-		} else if ((option == 2) && (!getMap().getMaze()[getX() - 1][getY()].getType().equals("entity"))) {
+		} else if ((option == 2) && (!getMap().getMaze()[getX() - 1][getY()].getType().equals("entity")) && (!getMap().getMaze()[getX() - 1][getY()].getType().equals("collectible"))) {
 			moveTo(getX() - 1,getY(), getMap());
-		} else if (!getMap().getMaze()[getX() + 1][getY()].getType().equals("entity") ){
+		} else if ((!getMap().getMaze()[getX() + 1][getY()].getType().equals("entity")) && (!getMap().getMaze()[getX() + 1][getY()].getType().equals("collectible"))) {
 			moveTo(getX() + 1,getY(), getMap());
 		}
 
