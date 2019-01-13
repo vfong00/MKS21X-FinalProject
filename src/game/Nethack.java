@@ -20,8 +20,8 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
         t.setCursorPosition(null);
 }
 
-public static void main(String[] args) throws IOException {
-        Maze maze = new Maze();
+public static void run() throws IOException{
+	Maze maze = new Maze();
 	Generation g = new Generation(5);
         ExtendedTerminal terminal = new UnixTerminal();
         // terminal.enterPrivateMode();
@@ -105,5 +105,9 @@ public static void main(String[] args) throws IOException {
 		s.clear();
                 putString(0,0,s,p.getToPrint());
 	}
+}
+
+public static void main(String[] args) throws IOException {
+	Nethack.run();
 }
 }
