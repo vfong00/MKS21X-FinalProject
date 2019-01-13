@@ -6,7 +6,7 @@ lol
 
 ## os x/linux
 chmod +x compile.sh
-
+./compile.sh
 
 
 ## devlog- moody
