@@ -5,7 +5,7 @@ making a roguelike game
 lol
 
 ## os x/linux
-chmod +x compile.sh \n
+chmod +x compile.sh
 ./compile.sh
 
 
