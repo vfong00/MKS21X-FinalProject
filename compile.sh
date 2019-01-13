@@ -3,10 +3,10 @@ javac -cp .:lib/lanterna.jar:src/collectible/:src/entity:src/game:src/maze:src/m
 if [ "$OSTYPE" == "linux-gnu" ]
 then
 	resize -s 40 100
-	echo "linux boi"
+	echo "linux boi <3"
 else
 	printf '\e[8;40;100t'
-	echo "mac boi"
+	echo "mac boi >:("
 fi
 cd src/game
 
