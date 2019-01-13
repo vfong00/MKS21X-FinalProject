@@ -5,9 +5,8 @@ making a roguelike game
 lol
 
 ## os x/linux
-compile with javac -cp :../../lib/lanterna.jar:../game:../maze:../entity:../mazeGeneration:../collectible: Nethack.java
+chmod +x compile.sh
 
-run with java -cp :../../lib/lanterna.jar:../game:../maze:../entity:../mazeGeneration:../collectible: Nethack
 
 
 ## devlog- moody
