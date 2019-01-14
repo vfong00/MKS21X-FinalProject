@@ -6,7 +6,7 @@ public class Armor extends Collectible {
         }
 
         public void statusEffect(Player p) {
-                p.setDefense(p.getDamage() + power);
+                p.setDefense(p.getDefense() + power);
                 p.setToPrint("Picked up " + this.getName() + ". Defense increased by " + power + ".");
         }
 }

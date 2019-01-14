@@ -55,6 +55,7 @@ public static void main(String[] args) throws IOException {
         Player p = new Player(10, 10, "bread", maze);
 	Monster m = new Monster(11, 11, 15, 5, 1, 75, 'Q', "Skeletor", maze);
         Weapon w = new Weapon(12,12,4,'/',"Excalibur", maze);
+	Armor d = new Armor(13,13,4,'D',"Golden Shield", maze);
 
         boolean running = true;
 	boolean init = false;
@@ -63,6 +64,7 @@ public static void main(String[] args) throws IOException {
 
         putString(0,0,s,"Begin game");
 	putString(0,35,s,bottomBar1);
+	putString(0,36,s,bottomBar2);
 
 	while (running){
 
@@ -103,7 +105,7 @@ public static void main(String[] args) throws IOException {
 		bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
 		bottomBar2 = "ATK: " + p.getDamage() + "          DEF: " + p.getDefense() + "          SKILL: " + p.getAccuracy();
 		putString(0,35,s,bottomBar1);
-		putString(0,36,s,bottomBar1);
+		putString(0,36,s,bottomBar2);
 	}
 }
 }
