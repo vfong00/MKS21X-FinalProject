@@ -60,7 +60,7 @@ public static void main(String[] args) throws IOException {
 	}
 
         Player p = new Player(10, 10, maze);
-	Monster m = new Monster(11, 11, 15, 5, "Skeletor", maze);
+	Monster m = new Monster(11, 11, 15, 5, 1, 75, 'Q', "Skeletor", maze);
         Weapon w = new Weapon(12,12,4,'/',"Excalibur", maze);
 
         boolean running = true;

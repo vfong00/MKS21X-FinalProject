@@ -3,7 +3,7 @@ public class Player extends Entity {
 private String toPrint;
 
 public Player(int x, int y, Maze map) {
-	super(x,y,100, 9, '@', "You", map);
+	super(x,y,100, 9, 0, 75, '@', "You", map);
 }
 
 
