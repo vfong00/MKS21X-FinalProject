@@ -9,8 +9,10 @@ chmod +x compile.sh
 ./compile.sh
 
 ## how to play
-move with wasd  'p' to generate new dungeon  'q' to quit  
-DO NOT HIT ARROW KEYS OR ELSE IT ALL BREAKS
+move with wasd
+'p' to generate new dungeon
+'q' to quit
+DO NOT HIT ARROW KEYS OR ELSE EVERYONE DIES
 
 ## devlog- moody
 ### 01-05-19
