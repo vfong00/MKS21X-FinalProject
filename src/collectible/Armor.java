@@ -1,12 +1,12 @@
 public class Armor extends Collectible {
-        private int strength;
-        public Armor(int x, int y, int strength, char sprite, String name, Maze map) {
+        private int power;
+        public Armor(int x, int y, int power, char sprite, String name, Maze map) {
                 super(x,y,sprite,name,map);
-                this.strength = strength;
+                this.power = power;
         }
 
         public void statusEffect(Player p) {
-                p.setDamage(p.getDamage() + strength);
-                p.setToPrint("Picked up " + this.getName() + ". Attack increased by " + strength + ".");
+                p.setDefense(p.getDamage() + power);
+                p.setToPrint("Picked up " + this.getName() + ". Defense increased by " + power + ".");
         }
 }

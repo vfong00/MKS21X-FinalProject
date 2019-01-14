@@ -66,9 +66,6 @@ public static void main(String[] args) throws IOException {
 
 	while (running){
 
-		bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
-		putString(0,35,s,bottomBar1);
-		putString(0,36,s,bottomBar1);
 		maze.printMaze(s);
 		// s.clear();
 		if (!init){
@@ -103,6 +100,10 @@ public static void main(String[] args) throws IOException {
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
                 putString(0,0,s,p.getToPrint());
+		bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
+		bottomBar2 = "ATK: " + p.getDamage() + "          DEF: " + p.getDefense() + "          SKILL: " + p.getAccuracy();
+		putString(0,35,s,bottomBar1);
+		putString(0,36,s,bottomBar1);
 	}
 }
 }
