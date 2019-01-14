@@ -58,15 +58,15 @@ public static void main(String[] args) throws IOException {
 
         boolean running = true;
 	boolean init = false;
-	String bottomBar = "Player Name: " + p.getName() + "      HP: " + p.getHP();
+	String bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
 
-        putString(0,0,s,"begin game");
-	putString(0,3,s,bottomBar);
+        putString(0,0,s,"Begin game");
+	putString(0,35,s,bottomBar1);
 
 	while (running){
 
-		bottomBar = "Player Name: " + p.getName() + "      HP: " + p.getHP();
-		putString(0,3,s,bottomBar);
+		bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
+		putString(0,35,s,bottomBar1);
 		maze.printMaze(s);
 		// s.clear();
 		if (!init){
@@ -101,7 +101,6 @@ public static void main(String[] args) throws IOException {
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
                 putString(0,0,s,p.getToPrint());
-		putString(0,3,s,bottomBar);
 	}
 }
 }

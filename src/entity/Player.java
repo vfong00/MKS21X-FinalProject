@@ -11,10 +11,12 @@ public Player(int x, int y, String name, Maze map) {
 
 public void damage(Entity e){
 	toPrint = "";
+	double actDamageDone = this.getDamage() * (1 - (0.01 * e.getDefense()));
+	double actDamageTaken = e.getDamage() * (1 - (0.01 * this.getDefense()));
 	Random rng = new Random();
 	if (rng.nextInt(100) <= this.getAccuracy()) {
-		toPrint += "You hit " + e.getName() + " for " + this.getDamage() + " damage. ";
-		e.setHP(e.getHP() - (this.getDamage() * (1 - (0.01 * e.getDefense()))));
+		toPrint += "You hit " + e.getName() + " for " + actDamageDone + " damage. ";
+		e.setHP(e.getHP() - actDamageDone);
 		if (e.getHP() <= 0){
 			e.die();
 			toPrint = "Killed " + e.getName();
@@ -24,8 +26,8 @@ public void damage(Entity e){
 		toPrint += "You missed " + e.getName() + ". ";
 	}
 	if (rng.nextInt(100) <= e.getAccuracy()) {
-		toPrint += e.getName() + " hit you for " + e.getDamage() + " damage.";
-		this.setHP(this.getHP() - (e.getDamage() * (1 - (0.01 * this.getDefense()))));
+		toPrint += e.getName() + " hit you for " + actDamageTaken + " damage.";
+		this.setHP(this.getHP() - actDamageTaken);
 	} else {
 		toPrint += e.getName() + " missed.";
 	}
