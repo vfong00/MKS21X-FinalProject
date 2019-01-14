@@ -4,8 +4,8 @@ public class Player extends Entity {
 
 private String toPrint;
 
-public Player(int x, int y, Maze map) {
-	super(x,y,100, 9, 0, 75, '@', "You", map);
+public Player(int x, int y, String name, Maze map) {
+	super(x,y,100, 9, 0, 75, '@', name, map);
 }
 
 

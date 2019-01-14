@@ -12,12 +12,10 @@ import java.util.Random;
 public class Nethack {
 
 public static void putString(int r, int c,TerminalScreen t, String s) throws IOException{
-	t.setCursorPosition(new TerminalPosition(c,r));
 	for(int i = 0; i < s.length();i++){
                 t.setCharacter(r,c,new TextCharacter(s.charAt(i)));
                 r++;
         }
-        t.setCursorPosition(null);
 }
 
 public static void main(String[] args) throws IOException {
@@ -29,11 +27,6 @@ public static void main(String[] args) throws IOException {
 	TerminalScreen s = new TerminalScreen(terminal);
 	s.startScreen();
 	s.setCursorPosition(null);
-
-
-        for (int i = 15; i < 26; i++) {
-        	new Wall(12, i, maze);
-        }
 
 	// g.generate();
 	// char[][] gen = g.getGenerated();
@@ -59,17 +52,21 @@ public static void main(String[] args) throws IOException {
 		}
 	}
 
-        Player p = new Player(10, 10, maze);
+        Player p = new Player(10, 10, "bread", maze);
 	Monster m = new Monster(11, 11, 15, 5, 1, 75, 'Q', "Skeletor", maze);
         Weapon w = new Weapon(12,12,4,'/',"Excalibur", maze);
 
         boolean running = true;
 	boolean init = false;
+	String bottomBar = "Player Name: " + p.getName() + "      HP: " + p.getHP();
 
         putString(0,0,s,"begin game");
+	putString(0,3,s,bottomBar);
 
 	while (running){
 
+		bottomBar = "Player Name: " + p.getName() + "      HP: " + p.getHP();
+		putString(0,3,s,bottomBar);
 		maze.printMaze(s);
 		// s.clear();
 		if (!init){
@@ -104,6 +101,7 @@ public static void main(String[] args) throws IOException {
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
                 putString(0,0,s,p.getToPrint());
+		putString(0,3,s,bottomBar);
 	}
 }
 }
