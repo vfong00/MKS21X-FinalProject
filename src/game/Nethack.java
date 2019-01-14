@@ -30,6 +30,9 @@ public static void run() throws IOException{
 	s.startScreen();
 	s.setCursorPosition(null);
 
+	Menu.menuer(s);
+	try{Thread.sleep(2000);}catch(Exception e){}
+
 
         for (int i = 15; i < 26; i++) {
         	new Wall(12, i, maze);
@@ -108,7 +111,6 @@ public static void run() throws IOException{
 }
 
 public static void main(String[] args) throws IOException {
-	Menu.menuer();
 	Nethack.run();
 }
 }
