@@ -5,14 +5,14 @@ making a roguelike game
 lol
 
 ## os x/linux
-chmod +x compile.sh
-./compile.sh
+chmod +x compile.sh  &nbsp;
+./compile.sh  &nbsp;
 
 ## how to play
-move with wasd
-'p' to generate new dungeon
-'q' to quit
-DO NOT HIT ARROW KEYS OR ELSE EVERYONE DIES
+move with wasd  &nbsp;
+'p' to generate new dungeon   &nbsp;
+'q' to quit  &nbsp;
+DO NOT HIT ARROW KEYS OR ELSE EVERYONE DIES  &nbsp;
 
 ## devlog- moody
 ### 01-05-19
