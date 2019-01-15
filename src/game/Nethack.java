@@ -20,6 +20,16 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
         t.setCursorPosition(null);
 }
 
+
+public static void menu() throws IOException{
+	ExtendedTerminal terminal = new UnixTerminal();
+	terminal.setCursorVisible(false);
+	TerminalScreen s = new TerminalScreen(terminal);
+	s.startScreen();
+	s.setCursorPosition(null);
+}
+
+
 public static void run() throws IOException{
 	Maze maze = new Maze();
 	Generation g = new Generation(5);
@@ -111,6 +121,10 @@ public static void run() throws IOException{
 }
 
 public static void main(String[] args) throws IOException {
+	Nethack.menu();
+	try{
+		Thread.sleep(2000);
+	} catch (Exception e){}
 	Nethack.run();
 }
 }
