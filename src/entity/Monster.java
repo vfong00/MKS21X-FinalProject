@@ -5,8 +5,8 @@ public class Monster extends Entity{
 private int hp;
 private int damage;
 
-public Monster(int x, int y, int hp, int damage, String name, Maze map){
-	super(x, y, hp, 5, 'Q', name, map);
+public Monster(int x, int y, double hp, double damage, double defense, int accuracy, char sprite, String name, Maze map){
+	super(x, y, hp, damage, defense, accuracy, sprite, name, map);
 }
 
 public void nextMove() {

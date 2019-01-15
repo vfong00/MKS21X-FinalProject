@@ -1,20 +1,21 @@
 public abstract class Entity implements Tileable{
-  private int x, y;
+  private int x, y, accuracy;
+  private double hp, damage, defense;
   private char sprite;
   private Maze map;
-  private int hp;
-  private int damage;
   private String type = "entity";
   private String name;
   private boolean dead = false;
 
-  public Entity(int x, int y, int hp, int damage, char sprite, String name, Maze map) {
+  public Entity(int x, int y, double hp, double damage, double defense, int accuracy, char sprite, String name, Maze map) {
     this.x = x;
     this.y = y;
     this.sprite = sprite;
     map.setTile(x, y, this);
     this.map = map;
     this.hp = hp;
+    this.defense = defense;
+    this.accuracy = accuracy;
     this.damage = damage;
     this.name = name;
   }
@@ -39,20 +40,36 @@ public abstract class Entity implements Tileable{
     return type;
   }
 
-  public int getHP(){
+  public double getHP(){
 	  return this.hp;
   }
 
-  public void setHP(int hp){
+  public void setHP(double hp){
 	  this.hp = hp;
   }
 
-  public int getDamage(){
+  public double getDamage(){
 	  return this.damage;
   }
 
-  public void setDamage(int dam){
+  public void setDamage(double dam){
 	  this.damage = dam;
+  }
+
+  public double getDefense(){
+	  return this.defense;
+  }
+
+  public void setDefense(double def){
+	  this.defense = def;
+  }
+
+  public int getAccuracy(){
+	  return this.accuracy;
+  }
+
+  public void setAccuracy(int acc){
+	  this.accuracy = acc;
   }
 
   public void moveTo(int x, int y, Maze map){

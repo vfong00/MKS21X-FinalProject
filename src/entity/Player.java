@@ -1,21 +1,36 @@
+import java.util.Random;
+
 public class Player extends Entity {
 
 private String toPrint;
 
-public Player(int x, int y, Maze map) {
-	super(x,y,100, 9, '@', "You", map);
+public Player(int x, int y, String name, Maze map) {
+	super(x,y,100, 9, 0, 75, '@', name, map);
 }
 
 
 public void damage(Entity e){
-	toPrint = "You hit " + e.getName() + " for " + this.getDamage() + " damage. " + e.getName() + " hit you for " + e.getDamage() + " damage.";
-	e.setHP(e.getHP() - this.getDamage());
-	if (e.getHP() <= 0){
-		e.die();
-		toPrint = "Killed " + e.getName();
-		return;
+	toPrint = "";
+	double actDamageDone = this.getDamage() * (1 - (0.01 * e.getDefense()));
+	double actDamageTaken = e.getDamage() * (1 - (0.01 * this.getDefense()));
+	Random rng = new Random();
+	if (rng.nextInt(100) <= this.getAccuracy()) {
+		toPrint += "You hit " + e.getName() + " for " + actDamageDone + " damage. ";
+		e.setHP(e.getHP() - actDamageDone);
+		if (e.getHP() <= 0){
+			e.die();
+			toPrint = "Killed " + e.getName();
+			return;
+		}
+	} else {
+		toPrint += "You missed " + e.getName() + ". ";
 	}
-	this.setHP(this.getHP() - e.getDamage());
+	if (rng.nextInt(100) <= e.getAccuracy()) {
+		toPrint += e.getName() + " hit you for " + actDamageTaken + " damage.";
+		this.setHP(this.getHP() - actDamageTaken);
+	} else {
+		toPrint += e.getName() + " missed.";
+	}
 	return;
 }
 

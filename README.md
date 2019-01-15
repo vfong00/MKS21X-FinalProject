@@ -9,8 +9,13 @@ chmod +x compile.sh
 ./compile.sh
 
 ## how to play
+<<<<<<< HEAD
 move with wasd  'p' to generate new dungeon  'q' to quit
 DO NOT HIT ARROW KEYS OR ELSE IT ALL BREAKS 
+=======
+move with wasd  'p' to generate new dungeon  'q' to quit  
+DO NOT HIT ARROW KEYS OR ELSE IT ALL BREAKS
+>>>>>>> momsterv3
 
 ## devlog- moody
 ### 01-05-19
@@ -106,6 +111,9 @@ One thing that isn't that great is the current implementation of attacking. Beca
 ### 01-10-19
 + created collectible abstract class, and a working example (a weapon)
 + created terminal printing of player actions (such as collecting collectibles, fighting monsters)
+
+### 01-11-19 and 01-12-19
+I was on a trip on Saturday, and I spent most of Sunday recovering.
 
 To do list (in order of approachability/importance/some ordering):
 - aesthetics
