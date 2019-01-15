@@ -38,7 +38,6 @@ public static void run() throws IOException{
 	s.startScreen();
 	s.setCursorPosition(null);
 
-<<<<<<< HEAD
 	Menu.menuer(s);
 	try{Thread.sleep(2000);}catch(Exception e){}
 
@@ -47,8 +46,6 @@ public static void run() throws IOException{
         	new Wall(12, i, maze);
         }
 
-=======
->>>>>>> momsterv3
 	// g.generate();
 	// char[][] gen = g.getGenerated();
 	// for(int x = 0; x < 100; x++){
