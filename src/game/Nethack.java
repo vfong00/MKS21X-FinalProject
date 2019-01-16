@@ -25,6 +25,13 @@ public static void menu() throws IOException{
 	TerminalScreen s = new TerminalScreen(terminal);
 	s.startScreen();
 	s.setCursorPosition(null);
+
+	boolean menuActive = true;
+	putString(0, 0, s, "wack");
+	while (menuActive){
+		KeyStroke key = terminal.readInput();
+		char c = key.getCharacter();
+	}
 }
 
 
