@@ -1,6 +1,9 @@
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor.*;
+
 public class Armor extends Collectible {
         private int power;
-        public Armor(int x, int y, int power, char sprite, String name, Maze map) {
+        public Armor(int x, int y, int power, TextCharacter sprite, String name, Maze map) {
                 super(x,y,sprite,name,map);
                 this.power = power;
         }

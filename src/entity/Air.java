@@ -1,7 +1,10 @@
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor.*;
+
 public class Air implements Tileable{
 
 private int x, y;
-private char sprite = ' ';
+private TextCharacter sprite = new TextCharacter(' ');
 
 public Air(int x, int y){}
 
@@ -13,7 +16,7 @@ public int getY(){
 	return y;
 }
 
-public char getSprite(){
+public TextCharacter getSprite(){
 	return sprite;
 }
 

@@ -1,6 +1,9 @@
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor.*;
+
 public class Weapon extends Collectible {
         private int strength;
-        public Weapon(int x, int y, int strength, char sprite, String name, Maze map) {
+        public Weapon(int x, int y, int strength, TextCharacter sprite, String name, Maze map) {
                 super(x,y,sprite,name,map);
                 this.strength = strength;
         }

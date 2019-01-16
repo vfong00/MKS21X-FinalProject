@@ -37,7 +37,7 @@ public void printMaze(TerminalScreen t) throws IOException{
 			// t.setCursorPosition(x, y + 5);
 			// char c = maze[x][y].getSprite();
 			// t.putCharacter(c);
-			t.setCharacter(x, y + 5, new TextCharacter(maze[x][y].getSprite(), ANSI.DEFAULT, ANSI.DEFAULT));
+			t.setCharacter(x, y + 5, new TextCharacter(maze[x][y].getSprite().getCharacter(), ANSI.DEFAULT, ANSI.DEFAULT));
 		}
 	}
 }

@@ -1,11 +1,13 @@
 import java.util.Random;
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor.*;
 
 public class Monster extends Entity{
 
 private int hp;
 private int damage;
 
-public Monster(int x, int y, double hp, double damage, double defense, int accuracy, char sprite, String name, Maze map){
+public Monster(int x, int y, double hp, double damage, double defense, int accuracy, TextCharacter sprite, String name, Maze map){
 	super(x, y, hp, damage, defense, accuracy, sprite, name, map);
 }
 

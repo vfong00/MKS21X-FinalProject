@@ -53,9 +53,9 @@ public static void main(String[] args) throws IOException {
 	}
 
         Player p = new Player(10, 10, "bread", maze);
-	Monster m = new Monster(11, 11, 15, 5, 1, 75, 'Q', "Skeletor", maze);
-        Weapon w = new Weapon(12,12,4,'/',"Excalibur", maze);
-	Armor d = new Armor(13,13,4,'D',"Golden Shield", maze);
+	Monster m = new Monster(11, 11, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
+        Weapon w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
+	Armor d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
 
         boolean running = true;
 	boolean init = false;

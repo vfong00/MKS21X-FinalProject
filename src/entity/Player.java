@@ -1,11 +1,14 @@
 import java.util.Random;
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor.*;
+
 
 public class Player extends Entity {
 
 private String toPrint;
 
 public Player(int x, int y, String name, Maze map) {
-	super(x,y,100, 9, 0, 75, '@', name, map);
+	super(x,y,100, 9, 0, 75, new TextCharacter('@'), name, map);
 }
 
 

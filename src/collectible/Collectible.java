@@ -1,10 +1,13 @@
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor.*;
+
 public abstract class Collectible implements Tileable {
 
 private int x, y;
-private char sprite;
+private TextCharacter sprite;
 private String name;
 
-public Collectible(int x, int y, char sprite, String name, Maze map) {
+public Collectible(int x, int y, TextCharacter sprite, String name, Maze map) {
         this.x = x;
         this.y = y;
         this.sprite = sprite;
@@ -20,7 +23,7 @@ public int getY() {
         return y;
 }
 
-public char getSprite() {
+public TextCharacter getSprite() {
 	return sprite;
 }
 

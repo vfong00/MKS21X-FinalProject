@@ -1,13 +1,16 @@
+import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TextColor.*;
+
 public abstract class Entity implements Tileable{
   private int x, y, accuracy;
   private double hp, damage, defense;
-  private char sprite;
+  private TextCharacter sprite;
   private Maze map;
   private String type = "entity";
   private String name;
   private boolean dead = false;
 
-  public Entity(int x, int y, double hp, double damage, double defense, int accuracy, char sprite, String name, Maze map) {
+  public Entity(int x, int y, double hp, double damage, double defense, int accuracy, TextCharacter sprite, String name, Maze map) {
     this.x = x;
     this.y = y;
     this.sprite = sprite;
@@ -32,7 +35,7 @@ public abstract class Entity implements Tileable{
     return y;
   }
 
-  public char getSprite() {
+  public TextCharacter getSprite() {
     return sprite;
   }
 
