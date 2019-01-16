@@ -14,10 +14,11 @@ public Player(int x, int y, String name, Maze map) {
 
 public void damage(Entity e){
 	toPrint = "";
+	boolean isWall = e.getName().equals("Wall");
 	double actDamageDone = this.getDamage() * (1 - (0.01 * e.getDefense()));
 	double actDamageTaken = e.getDamage() * (1 - (0.01 * this.getDefense()));
 	Random rng = new Random();
-	if (rng.nextInt(100) <= this.getAccuracy()) {
+	if (rng.nextInt(100) <= this.getAccuracy() && !isWall) {
 		toPrint += "You hit " + e.getName() + " for " + actDamageDone + " damage. ";
 		e.setHP(e.getHP() - actDamageDone);
 		if (e.getHP() <= 0){
@@ -25,14 +26,14 @@ public void damage(Entity e){
 			toPrint = "Killed " + e.getName();
 			return;
 		}
-	} else {
+	} else if (!isWall) {
 		toPrint += "You missed " + e.getName() + ". ";
 	}
-	if (rng.nextInt(100) <= e.getAccuracy()) {
+	if (rng.nextInt(100) <= e.getAccuracy() && !isWall) {
 		toPrint += e.getName() + " hit you for " + actDamageTaken + " damage.";
 		this.setHP(this.getHP() - actDamageTaken);
-	} else {
-		toPrint += e.getName() + " missed.";
+	} else if (!isWall) {
+		 toPrint += e.getName() + " missed.";
 	}
 	return;
 }
