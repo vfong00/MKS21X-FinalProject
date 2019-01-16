@@ -7,4 +7,8 @@ public class Stairs extends Collectible {
         public Stairs(int x, int y, String name, Maze map) {
                 super(x,y,new TextCharacter(Symbols.TRIANGLE_UP_POINTING_BLACK,ANSI.DEFAULT,ANSI.DEFAULT),name,map);
         }
+
+        public void statusEffect(Player p) {
+                
+        }
 }
