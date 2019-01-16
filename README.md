@@ -112,11 +112,22 @@ One thing that isn't that great is the current implementation of attacking. Beca
 ### 01-11-19 and 01-12-19
 I was on a trip on Saturday, and I spent most of Sunday recovering.
 
+### 01-13-19
++ made status bar at bottom
++ added random hitting
++ added defense attributes
++ added armor collectible
+
+### 01-14-19
++ did not commit, but started research into textCharacters and terminal things
+
+### 01-15-19
++ switched out char fields for TextCharacters
++ made walls a little more snazzy
+
 To do list (in order of approachability/importance/some ordering):
 - aesthetics
-- missing attacks system
 - player inventory
 - more collectibles
 - not having the monster always run away from the Player
-- more entity attributes (defense, skill, etc.)
 - figure out way to not have tileables spawn in a wall.
