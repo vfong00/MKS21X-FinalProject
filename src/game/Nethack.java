@@ -18,6 +18,21 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
         }
 }
 
+public static void regenMaze(Maze maze, Terminal terminal, Generation g) throws IOException{
+	terminal.clearScreen();
+	maze.calcGenerated(g, maze);
+	for (int x = 0; x < 100; x++){
+		for (int y = 0; y < 30; y++){
+			if (x == 0 || x == 99){
+				new Wall(x, y, maze);
+			}
+			if (y == 0 || y == 29){
+				new Wall(x, y, maze);
+			}
+		}
+	}
+}
+
 public static void main(String[] args) throws IOException {
         Maze maze = new Maze();
 	Generation g = new Generation(5);
@@ -84,18 +99,7 @@ public static void main(String[] args) throws IOException {
 
 		//test code for on the fly generation
 		if (c == 'p'){
-			terminal.clearScreen();
-			maze.calcGenerated(g, maze);
-                        for (int x = 0; x < 100; x++){
-                		for (int y = 0; y < 30; y++){
-                			if (x == 0 || x == 99){
-                				new Wall(x, y, maze);
-                			}
-                			if (y == 0 || y == 29){
-                				new Wall(x, y, maze);
-                			}
-                		}
-                	}
+			regenMaze(maze, terminal, g);
 		}
 		p.moveViaInput(c);
                 m.nextMove();
