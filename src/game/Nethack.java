@@ -21,6 +21,9 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
 public static void regenMaze(Maze maze, Terminal terminal, Generation g) throws IOException{
 	terminal.clearScreen();
 	maze.calcGenerated(g, maze);
+
+	// game crashes if border is overreached,
+	// this draws in border walls
 	for (int x = 0; x < 100; x++){
 		for (int y = 0; y < 30; y++){
 			if (x == 0 || x == 99){
@@ -31,6 +34,15 @@ public static void regenMaze(Maze maze, Terminal terminal, Generation g) throws 
 			}
 		}
 	}
+}
+
+public static void statusMessageUpdate(Player p, TerminalScreen s, String top) throws IOException {
+	String bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
+	String bottomBar2 = "ATK: " + p.getDamage() + "          DEF: " + p.getDefense() + "          SKILL: " + p.getAccuracy();
+
+        putString(0,0,s,top);
+	putString(0,35,s,bottomBar1);
+	putString(0,36,s,bottomBar2);
 }
 
 public static void main(String[] args) throws IOException {
@@ -74,12 +86,7 @@ public static void main(String[] args) throws IOException {
 
         boolean running = true;
 	boolean init = false;
-	String bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
-	String bottomBar2 = "ATK: " + p.getDamage() + "          DEF: " + p.getDefense() + "          SKILL: " + p.getAccuracy();
-
-        putString(0,0,s,"Begin game");
-	putString(0,35,s,bottomBar1);
-	putString(0,36,s,bottomBar2);
+	statusMessageUpdate(p,s,"Begin game");
 
 	while (running){
 
@@ -105,11 +112,7 @@ public static void main(String[] args) throws IOException {
                 m.nextMove();
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
-                putString(0,0,s,p.getToPrint());
-		bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
-		bottomBar2 = "ATK: " + p.getDamage() + "          DEF: " + p.getDefense() + "          SKILL: " + p.getAccuracy();
-		putString(0,35,s,bottomBar1);
-		putString(0,36,s,bottomBar2);
+		statusMessageUpdate(p,s,p.getToPrint());
 	}
 }
 }
