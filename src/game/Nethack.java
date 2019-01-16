@@ -38,7 +38,6 @@ public static void run() throws IOException{
 	s.startScreen();
 	s.setCursorPosition(null);
 
-	Menu.menuer(s);
 	try{Thread.sleep(2000);}catch(Exception e){}
 
 

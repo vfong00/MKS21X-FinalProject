@@ -20,10 +20,12 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
         t.setCursorPosition(null);
 }
 
-public static void menuer(TerminalScreen t) throws IOException{
-	Color c = new Color(ANSI.RED, ANSI.BLACK);
-	// Print.printString(0, 0, "derp", c, t);
-	putString(0,0,t,"derp");
+public static void menuer() throws IOException{
+	ExtendedTerminal terminal = new UnixTerminal();
+	terminal.setCursorVisible(false);
+	TerminalScreen s = new TerminalScreen(terminal);
+	s.startScreen();
+	s.setCursorPosition(null);
 }
 
 }
