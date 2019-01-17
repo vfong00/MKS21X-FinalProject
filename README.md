@@ -128,7 +128,8 @@ I was on a trip on Saturday, and I spent most of Sunday recovering.
 ### 01-16-18
 + wrote a stairs class, that transports you to a newly generated level
 + cleaned up code with helper functions
-+ wrote in xp levels + floor level counter, which is now seen in game
++ wrote in xp levels and floor level counter, which is now seen in game
++ made the golden shield look like a shield (but not gold). also made other characters cooler
 
 To do list (in order of approachability/importance/some ordering):
 - aesthetics
