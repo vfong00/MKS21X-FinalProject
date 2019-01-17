@@ -7,9 +7,27 @@ public class Player extends Entity {
 
 private boolean atStairs = false;
 private String toPrint;
+private int xp = 0;
+private int floor = 1;
 
 public Player(int x, int y, String name, Maze map) {
 	super(x,y,100, 9, 0, 75, new TextCharacter('@'), name, map);
+}
+
+public int getXP() {
+	return xp;
+}
+
+public void incXP(int inc) {
+	xp += inc;
+}
+
+public int getFloor() {
+	return floor;
+}
+
+public void incFloor() {
+	floor++;
 }
 
 public boolean getAtStairs() {
@@ -30,8 +48,9 @@ public void damage(Entity e){
 		toPrint += "You hit " + e.getName() + " for " + actDamageDone + " damage. ";
 		e.setHP(e.getHP() - actDamageDone);
 		if (e.getHP() <= 0){
+			incXP(e.givenXP());
 			e.die();
-			toPrint = "Killed " + e.getName();
+			toPrint = "Killed " + e.getName() + ". Got " + e.givenXP() + ".";
 			return;
 		}
 	} else if (!isWall) {

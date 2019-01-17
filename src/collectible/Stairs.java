@@ -16,7 +16,9 @@ public class Stairs extends Collectible {
         }
 
         public void statusEffect(Player p) {
+                p.incFloor();
                 p.setAtStairs(true);
+                p.setToPrint("Went up stairs. Now at level " + p.getFloor());
                 map.setTile(x,y,new Air(x,y));
                 this.type = "air";
         }

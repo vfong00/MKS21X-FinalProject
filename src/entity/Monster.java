@@ -6,9 +6,11 @@ public class Monster extends Entity{
 
 private int hp;
 private int damage;
+private int givenXP;
 
-public Monster(int x, int y, double hp, double damage, double defense, int accuracy, TextCharacter sprite, String name, Maze map){
+public Monster(int x, int y, int givenXP, double hp, double damage, double defense, int accuracy, TextCharacter sprite, String name, Maze map){
 	super(x, y, hp, damage, defense, accuracy, sprite, name, map);
+	this.givenXP = givenXP;
 }
 
 public void nextMove() {
@@ -32,8 +34,8 @@ public void nextMove() {
 	}
 }
 
-public void mover(){
-
+public int givenXP(){
+	return givenXP;
 }
 
 }

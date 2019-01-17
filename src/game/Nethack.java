@@ -39,10 +39,12 @@ public static void regenMaze(Maze maze, Terminal terminal, Generation g) throws 
 public static void statusMessageUpdate(Player p, TerminalScreen s, String top) throws IOException {
 	String bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
 	String bottomBar2 = "ATK: " + p.getDamage() + "          DEF: " + p.getDefense() + "          SKILL: " + p.getAccuracy();
+	String bottomBar3 = "XP: " + p.getXP() + "          Floor: " + p.getFloor();
 
         putString(0,0,s,top);
 	putString(0,35,s,bottomBar1);
 	putString(0,36,s,bottomBar2);
+	putString(0,37,s,bottomBar3);
 }
 
 public static void main(String[] args) throws IOException {
@@ -58,7 +60,7 @@ public static void main(String[] args) throws IOException {
 	regenMaze(maze,terminal,g);
 
         Player p = new Player(10, 10, "bread", maze);
-	Monster m = new Monster(11, 11, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
+	Monster m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
         Weapon w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
 	Stairs st = new Stairs(16,16,maze);
@@ -90,7 +92,7 @@ public static void main(String[] args) throws IOException {
 			regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
 			st = new Stairs(16,16,maze);
-			m = new Monster(11, 11, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
+			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
 		        w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
 		}
@@ -100,7 +102,7 @@ public static void main(String[] args) throws IOException {
 			regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
 			st = new Stairs(16,16,maze);
-			m = new Monster(11, 11, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
+			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
 		        w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
 			p.setAtStairs(false);
