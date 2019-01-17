@@ -117,6 +117,6 @@ public static void run() throws IOException{
 }
 
 public static void main(String[] args) throws IOException {
-        menu();
+	run();
 }
 }

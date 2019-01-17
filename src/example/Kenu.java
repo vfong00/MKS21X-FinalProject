@@ -4,7 +4,7 @@ import com.googlecode.lanterna.terminal.ansi.*;
 import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
 import java.io.IOException;
-public class Menu{
+public class Kenu{
 
 
 public static void putString(int r, int c,Terminal t, String s) throws IOException{
