@@ -5,12 +5,20 @@ import com.googlecode.lanterna.TextColor.*;
 
 public class Player extends Entity {
 
+private boolean atStairs = false;
 private String toPrint;
 
 public Player(int x, int y, String name, Maze map) {
 	super(x,y,100, 9, 0, 75, new TextCharacter('@'), name, map);
 }
 
+public boolean getAtStairs() {
+	return atStairs;
+}
+
+public void setAtStairs(boolean v) {
+	atStairs = v;
+}
 
 public void damage(Entity e){
 	toPrint = "";
@@ -102,7 +110,7 @@ public boolean moveViaInput(char dir){
 	}
 
 	if(dir == 'd'){
-		if (d.getType() .equals("entity")){
+		if (d.getType().equals("entity")){
 			damage(de);
 			return false;
 		} else if (d.getType().equals("collectible")) {

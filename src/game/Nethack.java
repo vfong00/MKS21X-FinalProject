@@ -61,6 +61,7 @@ public static void main(String[] args) throws IOException {
 	Monster m = new Monster(11, 11, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
         Weapon w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
+	Stairs st = new Stairs(16,16,maze);
 
 	boolean temp = false;
         boolean running = true;
@@ -85,11 +86,25 @@ public static void main(String[] args) throws IOException {
 		}
 
 		//test code for on the fly generation
-		if (c == 'p'){
+		if (c == 'p') {
 			regenMaze(maze, terminal, g);
+			p.moveTo(10,10,maze);
+			st = new Stairs(16,16,maze);
+			m = new Monster(11, 11, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
+		        w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
+			d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
 		}
 		p.moveViaInput(c);
                 m.nextMove();
+		if (p.getAtStairs()) {
+			regenMaze(maze, terminal, g);
+			p.moveTo(10,10,maze);
+			st = new Stairs(16,16,maze);
+			m = new Monster(11, 11, 15, 5, 1, 75, new TextCharacter('Q'), "Skeletor", maze);
+		        w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
+			d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
+			p.setAtStairs(false);
+		}
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
 		statusMessageUpdate(p,s,p.getToPrint());
