@@ -47,8 +47,15 @@ public static void statusMessageUpdate(Player p, TerminalScreen s, String top) t
 	putString(0,37,s,bottomBar3);
 }
 
-public static void main(String[] args) throws IOException {
-        Maze maze = new Maze();
+
+public static void menu(){
+	KeyReader k = new KeyReader();
+	k.main();
+}
+
+
+public static void run() throws IOException{
+	Maze maze = new Maze();
 	Generation g = new Generation(5);
         ExtendedTerminal terminal = new UnixTerminal();
         // terminal.enterPrivateMode();
@@ -112,5 +119,9 @@ public static void main(String[] args) throws IOException {
 		statusMessageUpdate(p,s,p.getToPrint());
 		putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
 	}
+}
+
+public static void main(String[] args) throws IOException {
+        menu();
 }
 }

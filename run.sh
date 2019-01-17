@@ -8,4 +8,4 @@ else
 fi
 
 cd src/game
-java -cp .:../../lib/lanterna.jar:../maze:../mazeGeneration:../entity:../game:../collectible: Nethack
+java -cp .:../../lib/jcurses.jar:../../lib/lanterna.jar:../menu:../maze:../mazeGeneration:../entity:../game:../collectible: Nethack
