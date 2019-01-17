@@ -125,9 +125,14 @@ I was on a trip on Saturday, and I spent most of Sunday recovering.
 + switched out char fields for TextCharacters
 + made walls a little more snazzy
 
+### 01-16-18
++ wrote a stairs class, that transports you to a newly generated level
++ cleaned up code with helper functions
++ wrote in xp levels + floor level counter, which is now seen in game
+
 To do list (in order of approachability/importance/some ordering):
 - aesthetics
+- how the player dies
+- figure out way to not have tileables spawn in a wall (aka good random generation)
 - player inventory
-- more collectibles
-- not having the monster always run away from the Player
-- figure out way to not have tileables spawn in a wall.
+- how the player dies
