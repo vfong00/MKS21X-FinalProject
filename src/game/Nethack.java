@@ -18,6 +18,17 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
         }
 }
 
+public static void printMenu(int menpos, TerminalScreen s, ExtendedTerminal t) throws IOException{
+	t.clearScreen();
+	putString(20, 15, s, "start");
+	putString(20, 16, s, "help");
+	putString(19, menpos, s, ">");
+
+	putString(30, 30, s, "select with space, w and s to select options, q to quit");
+	putString(30, 32, s, "DO NOT HIT THE ARROW KEYS OR ELSE U DIE");
+	s.refresh(Screen.RefreshType.DELTA);
+}
+
 
 public static void menu() throws IOException{
 	ExtendedTerminal terminal = new UnixTerminal();
@@ -27,10 +38,34 @@ public static void menu() throws IOException{
 	s.setCursorPosition(null);
 
 	boolean menuActive = true;
-	putString(0, 0, s, "wack");
+	boolean init = false;
+	int menpos = 15;
+	printMenu(menpos, s, terminal);
 	while (menuActive){
 		KeyStroke key = terminal.readInput();
 		char c = key.getCharacter();
+		if (c == 'w'){
+                        menpos = 15;
+                        printMenu(menpos, s, terminal);
+
+                }
+		if (c == 's'){
+                        menpos = 16;
+                        printMenu(menpos, s, terminal);
+                }
+		if (c == ' '){
+                        if (menpos == 15){
+                                // gameStart();
+                        }
+                        if (menpos == 16){
+                                // help();
+                        }
+                }
+		if (c == 'q'){
+			terminal.exitPrivateMode();
+			System.exit(0);
+		}
+		s.refresh(Screen.RefreshType.AUTOMATIC);
 	}
 }
 
