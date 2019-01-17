@@ -6,6 +6,7 @@ public abstract class Collectible implements Tileable {
 private int x, y;
 private TextCharacter sprite;
 private String name;
+private String type = "collectible";
 
 public Collectible(int x, int y, TextCharacter sprite, String name, Maze map) {
         this.x = x;
@@ -28,7 +29,7 @@ public TextCharacter getSprite() {
 }
 
 public String getType() {
-	return "collectible";
+	return type;
 }
 
 public String getName() {

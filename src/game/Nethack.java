@@ -62,9 +62,11 @@ public static void main(String[] args) throws IOException {
         Weapon w = new Weapon(12,12,4,new TextCharacter('/'),"Excalibur", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter('D'),"Golden Shield", maze);
 
+	boolean temp = false;
         boolean running = true;
 	boolean init = false;
 	statusMessageUpdate(p,s,"Begin game");
+	putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
 
 	while (running){
 
@@ -91,6 +93,7 @@ public static void main(String[] args) throws IOException {
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
 		statusMessageUpdate(p,s,p.getToPrint());
+		putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
 	}
 }
 }
