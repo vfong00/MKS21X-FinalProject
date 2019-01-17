@@ -48,11 +48,6 @@ public static void statusMessageUpdate(Player p, TerminalScreen s, String top) t
 }
 
 
-public static void menu(){
-	KeyReader k = new KeyReader();
-	k.main();
-}
-
 
 public static void run() throws IOException{
 	Maze maze = new Maze();
