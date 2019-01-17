@@ -3,7 +3,7 @@ import com.googlecode.lanterna.TextColor.*;
 
 public class Armor extends Collectible {
         private int x,y,power;
-        private Map map;
+        private Maze map;
         private String type = "collectible";
 
         public Armor(int x, int y, int power, TextCharacter sprite, String name, Maze map) {
