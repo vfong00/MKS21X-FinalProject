@@ -132,8 +132,9 @@ I was on a trip on Saturday, and I spent most of Sunday recovering.
 + made the golden shield look like a shield (but not gold). also made other characters cooler
 
 To do list (in order of approachability/importance/some ordering):
-- aesthetics
+- menu
 - how the player dies
 - figure out way to not have tileables spawn in a wall (aka good random generation)
+===
+- health collectible
 - player inventory
-- how the player dies
