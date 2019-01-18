@@ -7,7 +7,7 @@ public class HealthItem extends Collectible {
         private String type = "collectible";
 
         public HealthItem(int x, int y, int power, String name, Maze map) {
-                super(x,y,'\u262d',name,map);
+                super(x,y,new TextCharacter('\u2295'),name,map);
                 this.power = power;
                 this.x = x;
                 this.y = y;
@@ -15,7 +15,7 @@ public class HealthItem extends Collectible {
         }
 
         public void statusEffect(Player p) {
-                p.setHP(p.setHP() + power);
+                p.setHP(p.getHP() + power);
                 p.setToPrint("Picked up " + this.getName() + ". Health increased by " + power + ".");
                 map.setTile(x,y,new Air(x,y));
                 this.type = "air";
