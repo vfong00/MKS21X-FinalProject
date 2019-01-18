@@ -127,7 +127,7 @@ public static void main(String[] args) throws IOException {
 			p.setAtStairs(false);
 		}
 		if (p.getFloor() % 5 == 0) {
-			m3.nextMove();
+			boss.nextMove();
 		}
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
