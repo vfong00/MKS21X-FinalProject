@@ -63,7 +63,8 @@ public static void main(String[] args) throws IOException {
 	Monster m0 = new Monster(11, 11, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
 	Monster m1 = new Monster(11, 14, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
 	Monster m2 = new Monster(11, 8, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
-	Monster boss;
+	Monster boss = new Monster(15,10,(2 * (15 + (p.getFloor() * 2))),(2 * (15 + (p.getFloor() * 2))), 30 + (p.getFloor() * 2), 40 + (p.getFloor() * 4), 85 + p.getFloor(), new TextCharacter('\u2F24'), "Boss", maze);
+	boss.die();
 	int monsCycleCount = 0;
         Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
