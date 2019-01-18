@@ -19,8 +19,5 @@ public class HealthItem extends Collectible {
                 p.setToPrint("Picked up " + this.getName() + ". Health increased by " + power + ".");
                 map.setTile(x,y,new Air(x,y));
                 this.type = "air";
-                if (p.getHP() > 100) {
-                        p.setHP(100);
-                }
         }
 }

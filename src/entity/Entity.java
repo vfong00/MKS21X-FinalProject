@@ -19,6 +19,9 @@ public abstract class Entity implements Tileable{
     this.map = map;
     this.hp = hp;
     this.defense = defense;
+    if (defense > 100) {
+            defense = 100;
+    }
     this.accuracy = accuracy;
     this.damage = damage;
     this.name = name;
@@ -50,6 +53,9 @@ public abstract class Entity implements Tileable{
 
   public void setHP(double hp){
 	  this.hp = hp;
+          if (hp > 100) {
+                  hp = 100;
+          }
   }
 
   public double getDamage(){
@@ -66,6 +72,9 @@ public abstract class Entity implements Tileable{
 
   public void setDefense(double def){
 	  this.defense = def;
+          if (defense > 100) {
+                  defense = 100;
+          }
   }
 
   public int getAccuracy(){
