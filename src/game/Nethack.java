@@ -60,9 +60,9 @@ public static void main(String[] args) throws IOException {
 	regenMaze(maze,terminal,g);
 
         Player p = new Player(10, 10, "bread", maze);
-	Monster m0 = new Monster(11, 11, 10, 10, 5, 1, 75, new TextCharacter('\u2620'), "Skeleton", maze);
-	Monster m1 = new Monster(11, 14, 10, 10, 5, 1, 75, new TextCharacter('\u2620'), "Skeleton", maze);
-	Monster m2 = new Monster(11, 8, 10, 10, 5, 1, 75, new TextCharacter('\u2620'), "Skeleton", maze);
+	Monster m0 = new Monster(11, 11, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
+	Monster m1 = new Monster(11, 14, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
+	Monster m2 = new Monster(11, 8, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
 	Monster boss;
 	int monsCycleCount = 0;
         Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
@@ -75,8 +75,8 @@ public static void main(String[] args) throws IOException {
 	statusMessageUpdate(p,s,"Begin game");
 	putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
 
-	TextCharacter[] monsChars = {new TextCharacter('\u2620'), new TextCharacter('\u03B6'), new TextCharacter('\u2124'), new TextCharacter('\uA025'), new TextCharacter('G')};
-	String[] monsNames = {"Skeleton", "Snake Person", "Zombie", "Spider", "Goblin"};
+	TextCharacter[] monsChars = {new TextCharacter('\u0D95'), new TextCharacter('\u03B6'), new TextCharacter('\u2124'), new TextCharacter('\uA025'), new TextCharacter('G')};
+	String[] monsNames = {"Ghost", "Snake Person", "Zombie", "Spider", "Goblin"};
 
 	while (running){
 
