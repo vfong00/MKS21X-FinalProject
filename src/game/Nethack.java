@@ -18,23 +18,7 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
         }
 }
 
-public static void regenMaze(Maze maze, Terminal terminal, Generation g) throws IOException{
-	terminal.clearScreen();
-	maze.calcGenerated(g, maze);
 
-	// game crashes if border is overreached,
-	// this draws in border walls
-	for (int x = 0; x < 100; x++){
-		for (int y = 0; y < 30; y++){
-			if (x == 0 || x == 99){
-				new Wall(x, y, maze);
-			}
-			if (y == 0 || y == 29){
-				new Wall(x, y, maze);
-			}
-		}
-	}
-}
 
 public static void statusMessageUpdate(Player p, TerminalScreen s, String top) throws IOException {
 	String bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
@@ -61,10 +45,10 @@ public static void run() throws IOException{
 
 	Mena ma = new Mena(s, terminal);
 	s.refresh(Screen.RefreshType.DELTA);
-	try{Thread.sleep(2000);}catch(Exception e){}
+	try{Thread.sleep(1000);}catch(Exception e){}
 	s.refresh(Screen.RefreshType.DELTA);
 
-	regenMaze(maze,terminal,g);
+	Maze.regenMaze(maze,terminal,g);
 
         Player p = new Player(10, 10, "bread", maze);
 	Monster m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
@@ -97,7 +81,7 @@ public static void run() throws IOException{
 
 		//test code for on the fly generation
 		if (c == 'p') {
-			regenMaze(maze, terminal, g);
+			Maze.regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
 			st = new Stairs(16,16,maze);
 			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
@@ -108,7 +92,7 @@ public static void run() throws IOException{
 		p.moveViaInput(c);
                 m.nextMove();
 		if (p.getAtStairs()) {
-			regenMaze(maze, terminal, g);
+			Maze.regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
 			st = new Stairs(16,16,maze);
 			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);

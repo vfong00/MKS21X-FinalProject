@@ -42,6 +42,24 @@ public void printMaze(TerminalScreen t) throws IOException{
 	}
 }
 
+public static void regenMaze(Maze maze, Terminal terminal, Generation g) throws IOException{
+	terminal.clearScreen();
+	maze.calcGenerated(g, maze);
+
+	// game crashes if border is overreached,
+	// this draws in border walls
+	for (int x = 0; x < 100; x++){
+		for (int y = 0; y < 30; y++){
+			if (x == 0 || x == 99){
+				new Wall(x, y, maze);
+			}
+			if (y == 0 || y == 29){
+				new Wall(x, y, maze);
+			}
+		}
+	}
+}
+
 public void calcGenerated(Generation g, Maze maze){
 	g.generate();
 	char[][] gen = g.getGenerated();
