@@ -60,9 +60,15 @@ public void randomPlacer(){
 			} else {
 				map[x][y].setCurrent('0');
 			}
-			// if (y == 15){
-			// 	map[x][y].setCurrent('0');
-			// }
+			if (y == 15){
+				map[x][y].setCurrent(' ');
+			}
+			if (y == 14){
+				map[x][y].setCurrent(' ');
+			}
+			if (y == 16){
+				map[x][y].setCurrent(' ');
+			}
 		}
 	}
 }
