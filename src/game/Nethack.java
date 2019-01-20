@@ -59,6 +59,11 @@ public static void run() throws IOException{
 	s.startScreen();
 	s.setCursorPosition(null);
 
+	Mena ma = new Mena(s, terminal);
+	s.refresh(Screen.RefreshType.DELTA);
+	try{Thread.sleep(2000);}catch(Exception e){}
+	s.refresh(Screen.RefreshType.DELTA);
+
 	regenMaze(maze,terminal,g);
 
         Player p = new Player(10, 10, "bread", maze);
@@ -117,7 +122,6 @@ public static void run() throws IOException{
 }
 
 public static void main(String[] args) throws IOException {
-	//Menu.menuer();
 	run();
 }
 }
