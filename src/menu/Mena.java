@@ -51,7 +51,13 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 				return;
 			}
 			if (c == 1){
-				putString(0, 0, sc, "QUACK");
+				sc.clear();
+				putString(12, 12, sc, "WASD to move around");
+				putString(12, 13, sc, "Walk into enemies to damage them");
+				putString(12, 14, sc, "Triangles are stairs to the next floor");
+				sc.refresh(Screen.RefreshType.DELTA);
+				KeyStroke z = term.readInput();
+				sc.clear();
 			}
 			else {
 				System.exit(1);
