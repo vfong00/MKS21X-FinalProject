@@ -23,13 +23,13 @@ public static void putString(int x, int y,TerminalScreen t, String s) throws IOE
 public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 	this.sc = t;
 	this.tr = term;
-	int monpes = 25;
+	int monpes = 24;
 
 	boolean inMenu = true;
 	// putString(0, 0, sc, "" + monpes);
-	putString(25, 25, sc, "start");
-	putString(25, 26, sc, "help");
-	putString(25, 27, sc, "quit");
+	putString(25, 24, sc, "start");
+	putString(25, 25, sc, "help");
+	putString(25, 26, sc, "quit");
 	putString(24, monpes, sc, ">");
 	sc.refresh(Screen.RefreshType.DELTA);
 	while (inMenu){
@@ -42,9 +42,9 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 		if (ch == 's'){
 			monpes++;
 		}
-		if (ch == 'q'){
-			System.exit(1);
-		}
+		// if (ch == 'q'){
+		// 	System.exit(1);
+		// }
 		if (ch == ' '){
 			int c = monpes % 3;
 			if (c == 0){
@@ -58,10 +58,10 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 			}
 		}
 		// putString(0, 0, sc, "" + monpes);
-		putString(25, 25, sc, "start");
-		putString(25, 26, sc, "help");
-		putString(25, 27, sc, "quit");
-		putString(24, monpes % 3 + 25, sc, ">");
+		putString(25, 24, sc, "start");
+		putString(25, 25, sc, "help");
+		putString(25, 26, sc, "quit");
+		putString(24, monpes % 3 + 24, sc, ">");
 		sc.refresh(Screen.RefreshType.DELTA);
 	}
 	// try{Thread.sleep(2000);}catch(Exception e){}
