@@ -70,6 +70,7 @@ public static void run() throws IOException{
 	Monster m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
         Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
+	HealthItem h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 	Stairs st = new Stairs(16,16,maze);
 
 	boolean temp = false;
@@ -102,6 +103,7 @@ public static void run() throws IOException{
 			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
 		        w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
+			h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 		}
 		p.moveViaInput(c);
                 m.nextMove();
@@ -112,6 +114,7 @@ public static void run() throws IOException{
 			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
 		        w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
+			h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 			p.setAtStairs(false);
 		}
 		s.refresh(Screen.RefreshType.DELTA);
