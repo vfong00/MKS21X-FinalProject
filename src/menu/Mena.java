@@ -26,25 +26,42 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 	int monpes = 25;
 
 	boolean inMenu = true;
+	// putString(0, 0, sc, "" + monpes);
 	putString(25, 25, sc, "start");
 	putString(25, 26, sc, "help");
+	putString(25, 27, sc, "quit");
+	putString(24, monpes, sc, ">");
 	sc.refresh(Screen.RefreshType.DELTA);
 	while (inMenu){
 		sc.clear();
 		KeyStroke k = term.readInput();
 		char ch = k.getCharacter();
 		if (ch == 'w'){
-			monpes = 25;
+			monpes--;
 		}
 		if (ch == 's'){
-			monpes = 26;
+			monpes++;
 		}
 		if (ch == 'q'){
 			System.exit(1);
 		}
+		if (ch == ' '){
+			int c = monpes % 3;
+			if (c == 0){
+				return;
+			}
+			if (c == 1){
+				putString(0, 0, sc, "QUACK");
+			}
+			else {
+				System.exit(1);
+			}
+		}
+		// putString(0, 0, sc, "" + monpes);
 		putString(25, 25, sc, "start");
 		putString(25, 26, sc, "help");
-		putString(24, monpes, sc, ">");
+		putString(25, 27, sc, "quit");
+		putString(24, monpes % 3 + 25, sc, ">");
 		sc.refresh(Screen.RefreshType.DELTA);
 	}
 	// try{Thread.sleep(2000);}catch(Exception e){}
