@@ -78,6 +78,21 @@ ground up, from the point where terrain eneration last worked, and immediately s
 moving that work into Screen. After that was sorted out, I began moving around
 functions into their respective objects.
 
+## devlog- moody
+### 01-19-19
+A lot of the recent work was on Vincent, so today is my serious jump into what
+Vincent left me. <br/>
+Blessed be the CS gods for such a great partner <3  <br/>
+I've been putting some time into the Menu, and tried a bunch of implementations
+because the inital Lanterna idea did not work at all. After four or five attempts,
+(jcurses, cliche, system scanner, etc), I sat down and seriously redid the lanterna
+implementation. It worked! w and s increments and decrements the option value with
+then gets modded and shifted to match the option location.
+
+I've also been working on procedural item and entity placement, as evident by the
+PlacerFactory object. 
+
+
 ## devlog - Vincent
 ### 01-04-19
 + made extremely basic files (Nethack game file, Entity abstract class, Player)
