@@ -185,7 +185,7 @@ I haven't been doing much the past few days, as Moody's been working on his menu
 The project is pretty much what we expected it to be? A big, expansive thing that I totally
 did not see coming?
 
-I wrote javadocs, and the readme. That was fun.
+I wrote javadocs, the readme, and an easter egg. That was fun.
 
 Features to implement next??? (in order of approachability/importance/some ordering):
 - A death screen
