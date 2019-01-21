@@ -27,11 +27,11 @@ String[] monName =     {"Skeletor", "Solomon",
 			"Spitebug", "Sorrowling",
 			"Brinebody", "Vicent" };
 
-TextCharacter[] sprites =      {new TextCharacter('}'), new TextCharacter('-'),
-				new TextCharacter('$'),new TextCharacter('*'),
+TextCharacter[] sprites =      {new TextCharacter('λ'), new TextCharacter('μ'),
+				new TextCharacter('ω'),new TextCharacter('*'),
 				new TextCharacter(')'),new TextCharacter('('),
-				new TextCharacter('^'),new TextCharacter('+'),
-				new TextCharacter('>'),new TextCharacter('8') };
+				new TextCharacter('Ξ'),new TextCharacter('+'),
+				new TextCharacter('Ψ'),new TextCharacter('Ω') };
 
 int[] baseDamage =     {2, 4,
 			6, 7,
@@ -83,6 +83,23 @@ TextCharacter[] healthSprites =      {new TextCharacter('q'), new TextCharacter(
 				new TextCharacter('w'),new TextCharacter('y'),
 				new TextCharacter('e'),new TextCharacter('u'),
 				new TextCharacter('r'),new TextCharacter('i')};
+
+
+
+String[] weaponNames = {"Dirk", "Balasong",
+			"Ragespike", "Florance",
+			"Crucifer", "Legacy of the Gladiator",
+			"Mithril Touch", "Mithril Hand"};
+
+int[] strng =		{10, 12,
+			14, 17,
+			22, 27,
+			32, 39};
+
+TextCharacter[] weaponSprites = 	{new TextCharacter('⋒'),new TextCharacter('∘'),
+ 					new TextCharacter('∎'), new TextCharacter('∿'),
+					new TextCharacter('⊟'), new TextCharacter('⋮'),
+					new TextCharacter('∫'), new TextCharacter('∬') };
 
 public PlacerFactory(Maze m, Player p){
 	int level = p.getFloor();
@@ -140,6 +157,24 @@ public PlacerFactory(Maze m, Player p){
 			itemno = itemno % 6;
 		}
 		HealthItem h = new HealthItem(xcoor, ycoor, power[itemno], healthNames[itemno], healthSprites[itemno], m);
+	}
+
+	for (int x = 31; x < 35; x++){
+		int xcoor = xers[index[x]];
+		int ycoor = yers[index[x]];
+		int weaponno = randgen.nextInt(healthNames.length);
+		if (level <= 6 && level > -1){
+			weaponno = weaponno % 2;
+		} else if (level <= 14 && level >= 7){
+			weaponno = weaponno % 4;
+		} else if (level <=20 && level >= 15){
+			weaponno = weaponno % 6;
+		}
+		if (randgen.nextInt() % 100 <= 25){
+			Weapon w = new Weapon(xcoor, ycoor, strng[weaponno],
+			weaponSprites[weaponno],
+			weaponNames[weaponno],  m);
+		}
 	}
 }
 
