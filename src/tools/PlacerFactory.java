@@ -23,8 +23,8 @@ Monster[] monsters;
 
 String[] monName =     {"Skeletor", "Solomon",
 			"Kolb", "Paxtn",
-			"Abysshound", "Moldpaw",
 			"Spitebug", "Sorrowling",
+			"Abysshound", "Moldpaw",
 			"Brinebody", "Vicent" };
 
 TextCharacter[] sprites =      {new TextCharacter('λ'), new TextCharacter('μ'),
