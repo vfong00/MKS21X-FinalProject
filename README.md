@@ -90,8 +90,15 @@ implementation. It worked! w and s increments and decrements the option value wi
 then gets modded and shifted to match the option location.
 
 I've also been working on procedural item and entity placement, as evident by the
-PlacerFactory object. 
+PlacerFactory object.
 
+## devlog- moody
+### 01-20-19
+Vincent put some good time into making the individual monsters better, so today
+was on the PlacerFactory object. It randomly picks Air's in the game and spawns
+monsters there. It also stores all the instances of monsters and makes mass actions
+much easier to facilitate. I structured it so PlacerFactory can work on any
+Tileable.
 
 ## devlog - Vincent
 ### 01-04-19
