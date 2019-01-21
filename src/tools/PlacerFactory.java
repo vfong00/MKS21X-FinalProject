@@ -56,12 +56,17 @@ int[] accuracy =       {88, 59,
 			68, 85,
 			77, 88};
 
-int[] damages =        {88, 59,
- 			63, 65,
-			72, 78,
-			68, 85,
-			77, 88};
+int[] damages =        {15, 20,
+ 			20, 20,
+			25, 29,
+			31, 38,
+			45, 59};
 
+int[] defense =        {10, 10,
+ 			15, 15,
+			20, 20,
+			25, 25,
+			25, 25};
 public PlacerFactory(Maze m, Player p){
 	int level = p.getFloor();
 	Random randgen = new Random();
@@ -100,8 +105,9 @@ public PlacerFactory(Maze m, Player p){
 			nameno = nameno % 8;
 		}
 
-		Monster mon = new Monster(xcoor, ycoor, xp[nameno], hp[nameno],
-		damages[nameno], 5.0, accuracy[nameno], sprites[nameno], monName[nameno], m);
+		Monster mon = new Monster(xcoor, ycoor, xp[nameno], hp[nameno], damages[nameno],
+					defense[nameno], accuracy[nameno], sprites[nameno], monName[nameno],
+					m);
 		monsters[x] = mon;
 	}
 }
