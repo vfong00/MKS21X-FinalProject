@@ -6,6 +6,7 @@ import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.*;
+import com.googlecode.lanterna.input.KeyType;
 import java.io.IOException;
 
 public class Mena{
@@ -56,9 +57,9 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 	while (inMenu){
 		sc.clear();
 		KeyStroke k = term.readInput();
-		while(key.getKeyType() == KeyType.ArrowDown || key.getKeyType() == KeyType.ArrowUp
-			|| key.getKeyType() == KeyType.ArrowLeft || key.getKeyType() == KeyType.ArrowRight){
-			key = terminal.readInput();
+		while(k.getKeyType() == KeyType.ArrowDown || k.getKeyType() == KeyType.ArrowUp
+			|| k.getKeyType() == KeyType.ArrowLeft || k.getKeyType() == KeyType.ArrowRight){
+			k = term.readInput();
 		}
 		char ch = k.getCharacter();
 		if (ch == 'w'){
