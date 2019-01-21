@@ -19,5 +19,8 @@ public class Armor extends Collectible {
                 p.setToPrint("Picked up " + this.getName() + ". Defense increased by " + power + ".");
                 map.setTile(x,y,new Air(x,y));
                 this.type = "air";
+                if (p.getDefense() > 100) {
+                        p.setDefense(100);
+                }
         }
 }
