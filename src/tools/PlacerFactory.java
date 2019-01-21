@@ -33,6 +33,7 @@ TextCharacter[] sprites = {new TextCharacter('S'), new TextCharacter('L'),
 				new TextCharacter('>'),new TextCharacter('8') };
 
 public PlacerFactory(Maze m, Player p){
+	int level = p.getFloor();
 	Random randgen = new Random();
 	// int x, int y, int givenXP, double hp, double damage, double defense, int accuracy, TextCharacter sprite, String name, Maze map
 
@@ -59,6 +60,15 @@ public PlacerFactory(Maze m, Player p){
 		int xcoor = xers[index[x]];
 		int ycoor = yers[index[x]];
 		int nameno = randgen.nextInt(monName.length);
+		if (level <= 4 && level > -1){
+			nameno = nameno % 2;
+		} else if (level <= 8 && level >= 5){
+			nameno = nameno % 4;
+		} else if (level <=12 && level >= 9){
+			nameno = nameno % 6;
+		} else if (level <= 15 && level >= 13){
+			nameno = nameno % 8;
+		}
 		Monster mon = new Monster(xcoor, ycoor, 5, 20.0, 10.0, 5.0, 60, sprites[nameno], monName[nameno], m);
 		monsters[x] = mon;
 	}
