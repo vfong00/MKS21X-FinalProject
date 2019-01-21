@@ -44,6 +44,12 @@ int[] xp = 	       {5, 7,
 			13, 20,
 			25, 35};
 
+int[] hp = 	       {20, 20,
+			25, 30,
+			34, 33,
+			45, 55,
+			50, 69};
+
 public PlacerFactory(Maze m, Player p){
 	int level = p.getFloor();
 	Random randgen = new Random();
@@ -85,7 +91,7 @@ public PlacerFactory(Maze m, Player p){
 		int damage;
 		int health;
 
-		Monster mon = new Monster(xcoor, ycoor, xp[nameno], 20.0, 10.0, 5.0, 60, sprites[nameno], monName[nameno], m);
+		Monster mon = new Monster(xcoor, ycoor, xp[nameno], hp[nameno], 10.0, 5.0, 60, sprites[nameno], monName[nameno], m);
 		monsters[x] = mon;
 	}
 }
