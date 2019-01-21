@@ -28,45 +28,45 @@ public Collectible(int x, int y, TextCharacter sprite, String name, Maze map) {
 }
 
 /**
- * Accessor method for the x-coordinate field of this object.
+ * Accessor method for the x-coordinate field of this collectible.
  *
- * @return The x-coordinate of this object.
+ * @return The x-coordinate of this collectible, as an integer
  */
 public int getX() {
         return x;
 }
 
 /**
- * Accessor method for the y-coordinate field of this object.
+ * Accessor method for the y-coordinate field of this collectible.
  *
- * @return The y-coordinate of this object.
+ * @return The y-coordinate of this collectible, as an integer
  */
 public int getY() {
         return y;
 }
 
 /**
- * Accessor method for the sprite field of this object.
+ * Accessor method for the sprite field of this collectible.
  *
- * @return A TextCharacter that is the representation this object.
+ * @return A TextCharacter that is the representation this collectible.
  */
 public TextCharacter getSprite() {
 	return sprite;
 }
 
 /**
- * Accessor method for the type field of this object.
+ * Accessor method for the type field of this collectible.
  *
- * @return A String that says the type of this object.
+ * @return A String that says the type of this collectible.
  */
 public String getType() {
 	return type;
 }
 
 /**
- * Accessor method for the name field of this object.
+ * Accessor method for the name field of this collectible.
  *
- * @return A String that says the name of this object.
+ * @return A String that says the name of this collectible.
  */
 public String getName() {
         return name;
