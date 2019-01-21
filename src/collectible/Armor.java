@@ -7,7 +7,7 @@ public class Armor extends Collectible {
         private String type = "collectible";
 
         /**
-         * The constructor for the armor caollectible.
+         * The constructor for the armor collectible.
          *
          * @param x      The x-coordinate that the armor collectible is created at.
          * @param y      The x-coordinate that the armor collectible is created at.
