@@ -56,6 +56,10 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 	while (inMenu){
 		sc.clear();
 		KeyStroke k = term.readInput();
+		while(key.getKeyType() == KeyType.ArrowDown || key.getKeyType() == KeyType.ArrowUp
+			|| key.getKeyType() == KeyType.ArrowLeft || key.getKeyType() == KeyType.ArrowRight){
+			key = terminal.readInput();
+		}
 		char ch = k.getCharacter();
 		if (ch == 'w'){
 			monpes--;
