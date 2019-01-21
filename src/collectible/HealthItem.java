@@ -16,8 +16,8 @@ public class HealthItem extends Collectible {
          * @param name   The name of the health collectible.
          * @param map    The map that this health collectible belongs to.
          */
-        public HealthItem(int x, int y, int power, String name, Maze map) {
-                super(x,y,new TextCharacter('\u2295'),name,map);
+        public HealthItem(int x, int y, int power, String name, TextCharacter sprite, Maze map) {
+                super(x,y,sprite,name,map);
                 this.power = power;
                 this.x = x;
                 this.y = y;

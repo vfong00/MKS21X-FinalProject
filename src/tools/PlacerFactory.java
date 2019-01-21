@@ -26,7 +26,8 @@ String[] monName =     {"Skeletor", "Solomon",
 			"Abysshound", "Moldpaw",
 			"Spitebug", "Sorrowling",
 			"Brinebody", "Vicent" };
-TextCharacter[] sprites =      {new TextCharacter('S'), new TextCharacter('L'),
+
+TextCharacter[] sprites =      {new TextCharacter('}'), new TextCharacter('-'),
 				new TextCharacter('$'),new TextCharacter('*'),
 				new TextCharacter(')'),new TextCharacter('('),
 				new TextCharacter('^'),new TextCharacter('+'),
@@ -67,6 +68,22 @@ int[] defense =        {10, 10,
 			20, 20,
 			25, 25,
 			25, 25};
+
+String[] healthNames = {"Mom's Spaghetti", "Fruit Loaf",
+			"Spirit Soup", "Astronaut Food",
+		 	"Hot Cat", "Potato",
+		 	"Spirit Sauce", "Sharingan"};
+
+int[] power =		{5, 7,
+			11, 15,
+			17, 25,
+			35, 55};
+
+TextCharacter[] healthSprites =      {new TextCharacter('q'), new TextCharacter('t'),
+				new TextCharacter('w'),new TextCharacter('y'),
+				new TextCharacter('e'),new TextCharacter('u'),
+				new TextCharacter('r'),new TextCharacter('i')};
+
 public PlacerFactory(Maze m, Player p){
 	int level = p.getFloor();
 	Random randgen = new Random();
@@ -109,6 +126,20 @@ public PlacerFactory(Maze m, Player p){
 					defense[nameno], accuracy[nameno], sprites[nameno], monName[nameno],
 					m);
 		monsters[x] = mon;
+	}
+
+	for (int x = 26; x < 31; x++){
+		int xcoor = xers[index[x]];
+		int ycoor = yers[index[x]];
+		int itemno = randgen.nextInt(healthNames.length);
+		if (level <= 4 && level > -1){
+			itemno = itemno % 2;
+		} else if (level <= 8 && level >= 5){
+			itemno = itemno % 4;
+		} else if (level <=12 && level >= 9){
+			itemno = itemno % 6;
+		}
+		HealthItem h = new HealthItem(xcoor, ycoor, power[itemno], healthNames[itemno], healthSprites[itemno], m);
 	}
 }
 
