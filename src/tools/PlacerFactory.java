@@ -205,10 +205,9 @@ public PlacerFactory(Maze m, Player p){
 		} else if (level <=20 && level >= 15){
 			armorno = armorno % 6;
 		}
-		if (randgen.nextInt() % 100 <= 25){
-			// Weapon w = new Weapon(xcoor, ycoor, strng[weaponno],
-			// weaponSprites[weaponno],
-			// weaponNames[weaponno],  m);
+		if (randgen.nextInt() % 100 <= 35){
+			Armor a = new Armor(xcoor, ycoor, arstrng[armorno],
+			armorSprites[armorno], armorNames[armorno], m);
 		}
 	}
 }
