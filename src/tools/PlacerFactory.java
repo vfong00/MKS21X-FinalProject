@@ -14,13 +14,23 @@ import java.util.Random;
 
 public class PlacerFactory{
 
-Monster[] m = new Monster[20];
 ArrayList<Integer> blankx = new ArrayList<Integer>();
 ArrayList<Integer> blanky = new ArrayList<Integer>();
 Integer[] xers;
 Integer[] yers;
 Integer[] index;
 Monster[] monsters;
+
+String[] monName = {"Skeletor", "Solomon",
+			"Kolb", "Paxtn",
+			"Abysshound", "Moldpaw",
+			"Spitebug", "Sorrowling",
+			"Brinebody", "Vicent" };
+TextCharacter[] sprites = {new TextCharacter('S'), new TextCharacter('L'),
+				new TextCharacter('$'),new TextCharacter('*'),
+				new TextCharacter(')'),new TextCharacter('('),
+				new TextCharacter('^'),new TextCharacter('+'),
+				new TextCharacter('>'),new TextCharacter('8') };
 
 public PlacerFactory(Maze m, Player p){
 	Random randgen = new Random();
@@ -48,7 +58,8 @@ public PlacerFactory(Maze m, Player p){
 	for (int x = 0; x < 25; x++){
 		int xcoor = xers[index[x]];
 		int ycoor = yers[index[x]];
-		Monster mon = new Monster(xcoor, ycoor, 5, 20.0, 10.0, 5.0, 60, new TextCharacter('B'), "big mood", m);
+		int nameno = randgen.nextInt(monName.length);
+		Monster mon = new Monster(xcoor, ycoor, 5, 20.0, 10.0, 5.0, 60, sprites[nameno], monName[nameno], m);
 		monsters[x] = mon;
 	}
 }
