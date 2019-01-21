@@ -58,6 +58,8 @@ public static void regenMaze(Maze maze, Terminal terminal, Generation g) throws 
 			}
 		}
 	}
+	Wall y = new Wall(10, 0, maze);
+	y.easterEgg();
 }
 
 public void calcGenerated(Generation g, Maze maze){

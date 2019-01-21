@@ -53,9 +53,18 @@ public abstract class Entity implements Tileable{
   }
 
   /**
+   * Mutator method for the name field of this entity.
+   *
+   * @param name The String that this entity's name will be set to.
+   */
+  public void setName(String name) {
+          this.name = name;
+  }
+
+  /**
    * Accessor method for the x-coordinate field of this entity.
    *
-   * @return The x-coordinate of this entity, as an integer
+   * @return The x-coordinate of this entity, as an integer.
    */
   public int getX() {
     return x;
@@ -64,7 +73,7 @@ public abstract class Entity implements Tileable{
   /**
    * Accessor method for the y-coordinate field of this entity.
    *
-   * @return The y-coordinate of this entity, as an integer
+   * @return The y-coordinate of this entity, as an integer.
    */
   public int getY() {
     return y;
@@ -77,6 +86,15 @@ public abstract class Entity implements Tileable{
    */
   public TextCharacter getSprite() {
     return sprite;
+  }
+
+  /**
+   * Mutator method for the sprite field of this entity.
+   *
+   * @return A TextCharacter that is the representation this entity.
+   */
+  public void setSprite(TextCharacter t) {
+    sprite = t;
   }
 
   /**
@@ -211,6 +229,7 @@ public abstract class Entity implements Tileable{
    *
    * @return null
    */
+
   public Collectible getCollectible() {
           return null;
   }

@@ -8,4 +8,9 @@ public class Wall extends Entity {
   public Wall(int x, int y, Maze map) {
     super(x,y, 99999, 0, 0, 0, new TextCharacter(Symbols.BLOCK_DENSE, ANSI.DEFAULT, ANSI.DEFAULT), "Wall", map);
   }
+
+  public void easterEgg() {
+          this.setHP(25);
+          this.setName("oh?");
+  }
 }

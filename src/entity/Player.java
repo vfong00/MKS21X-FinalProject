@@ -44,6 +44,22 @@ public void damage(Entity e){
 	double actDamageDone = this.getDamage() * (1 - (0.0075 * e.getDefense()));
 	double actDamageTaken = e.getDamage() * (1 - (0.0075 * this.getDefense()));
 	Random rng = new Random();
+	if (e.getName().equals("oh?")) {
+		toPrint = "You hit a wall. But it feels weird. It's all squishy.";
+		e.setHP(e.getHP() - 5);
+		if ((e.getHP() <= 0) && (e.getHP() >= -15)) {
+			incXP(1);
+			e.setSprite(new TextCharacter('O'));
+			toPrint = "You found the easter egg!";
+		} else if ((e.getHP() < -15) && (e.getHP() >= -50)) {
+			toPrint = "Hey now, stop touching the egg. That's weird.";
+		} else if (e.getHP() < -50) {
+			e.setSprite(new TextCharacter('\u03B8'));
+			toPrint = "You broke the egg... we said to stop touching it...";
+		}
+		return;
+
+	}
 	if (rng.nextInt(100) <= this.getAccuracy() && !isWall) {
 		toPrint += "You hit " + e.getName() + " for " + actDamageDone + " damage. ";
 		e.setHP(e.getHP() - actDamageDone);
