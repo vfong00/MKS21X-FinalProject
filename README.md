@@ -1,6 +1,11 @@
 # MKS21X-FinalProject
-An attempt to make a roguelike game.
-This game features:
+
+## So like, what is this thing?
+An attempt to make a roguelike game. <br/>
+[Here is a Wikipedia article that explains one] (https://en.wikipedia.org/wiki/Roguelike) <br/>
+TL;DR? Dungeon-maze game. <br/>
+This game features: <br/>
+- A menu, with the most impressive of all logos
 - Random terrain generation of dungeons
 - Scary monsters with somewhat scary-looking sprites
 - Cool items dispersed everywhere
@@ -8,18 +13,29 @@ This game features:
 - Levels! Progressing monsters! It goes forever! (or until you die or get tired or something)
 - The communist hammer and sickle.
 
-## windows
+## But like, how do you even start the game?
+#### Windows
 lol
 
-## os x/linux
+#### OS X/Linux
+Download this repo <br/>
+With your terminal, go to the folder where you put this repo. <br/>
+Copy and paste the following lines, and enter: <br/>
 chmod +x compile.sh  <br/>
 ./compile.sh  <br/>
+Start slaying
 
-## how to play
-move with wasd  <br/>
+## Ok and like, how do you play?
+** MENU ** <br/>
+Move up/down options with W/S, respectively <br/>
+Space to select option in the menu <br/>
+'q' to go back (if you didn't choose play)
+
+** IN GAME ** <br/>
+WASD to move <br/>
 'p' to generate new dungeon   <br/>
 'q' to quit  <br/>
-DO NOT HIT ARROW KEYS OR ELSE EVERYONE DIES  <br/>
+To attack/collect, simply walk over what you want to interact with.
 
 ## devlog- moody
 ### 01-05-19
@@ -107,6 +123,7 @@ monsters there. It also stores all the instances of monsters and makes mass acti
 much easier to facilitate. I structured it so PlacerFactory can work on any
 Tileable.
 
+
 ## devlog - Vincent
 ### 01-04-19
 + made extremely basic files (Nethack game file, Entity abstract class, Player)
@@ -168,7 +185,7 @@ did not see coming?
 I wrote javadocs.
 
 Features to implement next??? (in order of approachability/importance/some ordering):
-- how the player dies
+- A death screen
 - figure out way to not have Tileables spawn in a wall (aka good random generation)
 ===
 - player inventory
