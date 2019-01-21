@@ -18,7 +18,13 @@ public abstract class Entity implements Tileable{
     map.setTile(x, y, this);
     this.map = map;
     this.hp = hp;
+    if (hp > 100) {
+            hp = 100;
+    }
     this.defense = defense;
+    if (defense > 100) {
+            defense = 100;
+    }
     this.accuracy = accuracy;
     this.damage = damage;
     this.name = name;

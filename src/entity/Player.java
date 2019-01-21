@@ -41,8 +41,8 @@ public void setAtStairs(boolean v) {
 public void damage(Entity e){
 	toPrint = "";
 	boolean isWall = e.getName().equals("Wall");
-	double actDamageDone = this.getDamage() * (1 - (0.01 * e.getDefense()));
-	double actDamageTaken = e.getDamage() * (1 - (0.01 * this.getDefense()));
+	double actDamageDone = this.getDamage() * (1 - (0.0075 * e.getDefense()));
+	double actDamageTaken = e.getDamage() * (1 - (0.0075 * this.getDefense()));
 	Random rng = new Random();
 	if (rng.nextInt(100) <= this.getAccuracy() && !isWall) {
 		toPrint += "You hit " + e.getName() + " for " + actDamageDone + " damage. ";

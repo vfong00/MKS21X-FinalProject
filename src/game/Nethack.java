@@ -51,17 +51,24 @@ public static void run() throws IOException{
 	Maze.regenMaze(maze,terminal,g);
 
         Player p = new Player(10, 10, "bread", maze);
-	Monster m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
+	Monster m0 = new Monster(11, 11, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
+	Monster m1 = new Monster(11, 14, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
+	Monster m2 = new Monster(11, 8, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
+	Monster boss = new Monster(15,10,(2 * (15 + (p.getFloor() * 2))),(2 * (15 + (p.getFloor() * 2))), 30 + (p.getFloor() * 2), 40 + (p.getFloor() * 4), 85 + p.getFloor(), new TextCharacter('\u2F24'), "Boss", maze);
+	boss.die();
+	int monsCycleCount = 0;
         Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 	HealthItem h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 	Stairs st = new Stairs(16,16,maze);
-
 	boolean temp = false;
         boolean running = true;
 	boolean init = false;
 	statusMessageUpdate(p,s,"Begin game");
 	putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
+
+	TextCharacter[] monsChars = {new TextCharacter('\u0D95'), new TextCharacter('\u03B6'), new TextCharacter('\u2124'), new TextCharacter('\uA025'), new TextCharacter('G')};
+	String[] monsNames = {"Ghost", "Snake Person", "Zombie", "Spider", "Goblin"};
 
 	while (running){
 
@@ -84,22 +91,35 @@ public static void run() throws IOException{
 			Maze.regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
 			st = new Stairs(16,16,maze);
-			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
+			m0 = new Monster(11, 8, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (2 * monsCycleCount), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
+			m1 = new Monster(11, 11, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
+			m2 = new Monster(11, 14, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
 		        w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 			h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 		}
 		p.moveViaInput(c);
-                m.nextMove();
+                m0.nextMove();
+		m1.nextMove();
+		m2.nextMove();
 		if (p.getAtStairs()) {
 			Maze.regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
+			if (p.getFloor() % 5 == 0) {
+				monsCycleCount++;
+				boss = new Monster(15,10,(2 * (15 + (p.getFloor() * 2))),(2 * (15 + (p.getFloor() * 2))), 30 + (p.getFloor() * 2), 40 + (p.getFloor() * 4), 85 + p.getFloor(), new TextCharacter('\u2F24'), "Boss", maze);
+			}
 			st = new Stairs(16,16,maze);
-			m = new Monster(11, 11, 10, 15, 5, 1, 75, new TextCharacter('\u263f'), "Skeletor", maze);
+			m0 = new Monster(11, 8, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (2 * monsCycleCount), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
+			m1 = new Monster(11, 11, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
+			m2 = new Monster(11, 14, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
 		        w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 			h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 			p.setAtStairs(false);
+		}
+		if (p.getFloor() % 5 == 0) {
+			boss.nextMove();
 		}
 		s.refresh(Screen.RefreshType.DELTA);
 		s.clear();
