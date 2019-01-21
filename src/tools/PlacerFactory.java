@@ -21,16 +21,28 @@ Integer[] yers;
 Integer[] index;
 Monster[] monsters;
 
-String[] monName = {"Skeletor", "Solomon",
+String[] monName =     {"Skeletor", "Solomon",
 			"Kolb", "Paxtn",
 			"Abysshound", "Moldpaw",
 			"Spitebug", "Sorrowling",
 			"Brinebody", "Vicent" };
-TextCharacter[] sprites = {new TextCharacter('S'), new TextCharacter('L'),
+TextCharacter[] sprites =      {new TextCharacter('S'), new TextCharacter('L'),
 				new TextCharacter('$'),new TextCharacter('*'),
 				new TextCharacter(')'),new TextCharacter('('),
 				new TextCharacter('^'),new TextCharacter('+'),
 				new TextCharacter('>'),new TextCharacter('8') };
+
+int[] baseDamage =     {2, 4,
+			6, 7,
+			10, 8,
+			11, 12,
+			15, 15};
+
+int[] xp = 	       {5, 7,
+			6, 9,
+			11, 14,
+			13, 20,
+			25, 35};
 
 public PlacerFactory(Maze m, Player p){
 	int level = p.getFloor();
@@ -69,7 +81,11 @@ public PlacerFactory(Maze m, Player p){
 		} else if (level <= 15 && level >= 13){
 			nameno = nameno % 8;
 		}
-		Monster mon = new Monster(xcoor, ycoor, 5, 20.0, 10.0, 5.0, 60, sprites[nameno], monName[nameno], m);
+
+		int damage;
+		int health;
+
+		Monster mon = new Monster(xcoor, ycoor, xp[nameno], 20.0, 10.0, 5.0, 60, sprites[nameno], monName[nameno], m);
 		monsters[x] = mon;
 	}
 }
