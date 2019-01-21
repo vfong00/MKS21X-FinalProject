@@ -27,9 +27,30 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 
 	boolean inMenu = true;
 	// putString(0, 0, sc, "" + monpes);
+
+	//  ______   _______           _______  _______  _______  _
+	// (  ___ \ (  ___  )|\     /|(  ____ )(  ___  )(  ___  )( \
+	// | (   ) )| (   ) |( \   / )| (    )|| (   ) || (   ) || (
+	// | (__/ / | (___) | \ (_) / | (____)|| |   | || |   | || |
+	// |  __ (  |  ___  |  \   /  |  _____)| |   | || |   | || |
+	// | (  \ \ | (   ) |   ) (   | (      | |   | || |   | || |
+	// | )___) )| )   ( |   | |   | )      | (___) || (___) || (____/\
+	// |/ \___/ |/     \|   \_/   |/       (_______)(_______)(_______/
+
+
+	putString(21, 5 , sc, "  ______   _______           _______  _______  _______  _       ");
+	putString(21, 6 , sc, "(  ___ \\ (  ___  )|\\     /|(  ____ )(  ___  )(  ___  )( \\");
+	putString(21, 7 , sc, "| (   ) )| (   ) |( \\   / )| (    )|| (   ) || (   ) || (");
+	putString(21, 8 , sc, "| (__/ / | (___) | \\ (_) / | (____)|| |   | || |   | || |");
+	putString(21, 9 , sc, "|  __ (  |  ___  |  \\   /  |  _____)| |   | || |   | || |");
+	putString(21, 10, sc, "| (  \\ \\ | (   ) |   ) (   | (      | |   | || |   | || |");
+	putString(21, 11, sc, "| )___) )| )   ( |   | |   | )      | (___) || (___) || (____/\\");
+	putString(21, 12, sc, "|/ \\___/ |/     \\|   \\_/   |/       (_______)(_______)(_______/");
+
 	putString(25, 24, sc, "start");
 	putString(25, 25, sc, "help");
-	putString(25, 26, sc, "quit");
+	putString(25, 26, sc, "credits");
+	putString(25, 27, sc, "quit");
 	putString(24, monpes, sc, ">");
 	sc.refresh(Screen.RefreshType.DELTA);
 	while (inMenu){
@@ -46,7 +67,7 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 		// 	System.exit(1);
 		// }
 		if (ch == ' '){
-			int c = monpes % 3;
+			int c = monpes % 4;
 			if (c == 0){
 				return;
 			}
@@ -59,15 +80,45 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 				KeyStroke z = term.readInput();
 				sc.clear();
 			}
-			else {
+			if (c == 2) {
+				sc.clear();
+				putString(12, 12, sc, "made by moody and vincent");
+				putString(12, 13, sc, "we trade marked this too so dont get any funny ideas");
+				putString(15, 20, sc, "░░░░░░░░░░░░▄█▀█▀▀▀▀▀▀▀▀▄▄░░░░░░░░ ");
+				putString(15, 21, sc, "░░░░░░░░░░▄██▀░█░░░░░░░░░░▀▀▄▄░░░░ ");
+				putString(15, 22, sc, "░░░░░░░░░░███▀█▀█▄▄▄▄▄▄▄▒▒▒▄███░░░ ");
+				putString(15, 23, sc, "░░░░░░░░▄██░░░░█░░░░░░░░▀▀▀▀▀▀█░░░ ");
+				putString(15, 24, sc, "░░░░░░▄███░░░░░░█░░░░░░░░░░░░░░░░░ ");
+				putString(15, 25, sc, "░░░░░█████▄░░░░░█░░░░░░░░░░░░░░░░░ ");
+				putString(15, 26, sc, "░░░░████████▄▄░█░░░░A░NEW░░░░░░░░░ ");
+				putString(15, 27, sc, "░░░████████████░░░░░░TOUCAN░░░░░░░ ");
+				putString(15, 28, sc, "░░░▀██████████░░░░░░░░HAS░░░░░░░░░ ");
+				putString(15, 29, sc, "░░░░██▒▀█▒▀█▀░░░░░░░░░░ARRIVED░░░░ ");
+				putString(15, 30, sc, "░■▓▓▓▓▓▄▓▓▄▓▓▓▓▓▓▓▓■░░░░░░░░░░░░░░ ");
+				putString(15, 31, sc, "░░░▄▄███▀░░░░░░░░░░░░░░░░░░░░░░░░░");
+
+				sc.refresh(Screen.RefreshType.DELTA);
+				KeyStroke z = term.readInput();
+				sc.clear();
+			}
+			if (c == 3) {
 				System.exit(1);
 			}
 		}
 		// putString(0, 0, sc, "" + monpes);
+		putString(21, 5 , sc, "  ______   _______           _______  _______  _______  _       ");
+		putString(21, 6 , sc, "(  ___ \\ (  ___  )|\\     /|(  ____ )(  ___  )(  ___  )( \\");
+		putString(21, 7 , sc, "| (   ) )| (   ) |( \\   / )| (    )|| (   ) || (   ) || (");
+		putString(21, 8 , sc, "| (__/ / | (___) | \\ (_) / | (____)|| |   | || |   | || |");
+		putString(21, 9 , sc, "|  __ (  |  ___  |  \\   /  |  _____)| |   | || |   | || |");
+		putString(21, 10, sc, "| (  \\ \\ | (   ) |   ) (   | (      | |   | || |   | || |");
+		putString(21, 11, sc, "| )___) )| )   ( |   | |   | )      | (___) || (___) || (____/\\");
+		putString(21, 12, sc, "|/ \\___/ |/     \\|   \\_/   |/       (_______)(_______)(_______/");
 		putString(25, 24, sc, "start");
 		putString(25, 25, sc, "help");
-		putString(25, 26, sc, "quit");
-		putString(24, monpes % 3 + 24, sc, ">");
+		putString(25, 26, sc, "credits");
+		putString(25, 27, sc, "quit");
+		putString(24, monpes % 4 + 24, sc, ">");
 		sc.refresh(Screen.RefreshType.DELTA);
 	}
 	// try{Thread.sleep(2000);}catch(Exception e){}
