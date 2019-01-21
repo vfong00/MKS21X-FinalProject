@@ -53,4 +53,9 @@ public PlacerFactory(Maze m, Player p){
 	}
 }
 
+public void mover(){
+	for (int x = 0; x < monsters.length; x++){
+		monsters[x].nextMove();
+	}
+}
 }

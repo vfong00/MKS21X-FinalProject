@@ -109,6 +109,7 @@ public static void run() throws IOException{
                 // m0.nextMove();
 		// m1.nextMove();
 		// m2.nextMove();
+		fact.mover();
 		if (p.getAtStairs()) {
 			Maze.regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
