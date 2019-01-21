@@ -59,7 +59,7 @@ public static void run() throws IOException{
 	// boss.die();`
 	PlacerFactory fact = new PlacerFactory(maze, p);
 	int monsCycleCount = 0;
-        Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
+        // Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 	// HealthItem h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 	Stairs st = new Stairs(16,16,maze);
@@ -101,7 +101,7 @@ public static void run() throws IOException{
 			// m1 = new Monster(11, 11, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
 			// m2 = new Monster(11, 14, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
 			fact = new PlacerFactory(maze, p);
-			w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
+			// w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 			// h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 		}
@@ -122,7 +122,7 @@ public static void run() throws IOException{
 			// m1 = new Monster(11, 11, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
 			// m2 = new Monster(11, 14, (2 * (15 + (p.getFloor() * 2))) / 3, 15 + p.getFloor(), 5 + p.getFloor(), 1 + monsCycleCount, 75 + (monsCycleCount * 2), monsChars[(monsCycleCount % 5)], monsNames[(monsCycleCount % 5)], maze);
 			fact = new PlacerFactory(maze, p);
-		        w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
+		        // w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Excalibur", maze);
 			d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 			// h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 			p.setAtStairs(false);
