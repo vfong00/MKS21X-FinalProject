@@ -11,8 +11,8 @@ public class Stairs extends Collectible {
         /**
          * The constructor for the stairs collectible.
          *
-         * @param x      The x-coordinate that the stairs is created at.
-         * @param y      The x-coordinate that the stairs is created at.
+         * @param x      The x-coordinate that the stairs is at.
+         * @param y      The x-coordinate that the stairs is at.
          * @param map    The map that these stairs belongs to.
          */
         public Stairs(int x, int y, Maze map) {

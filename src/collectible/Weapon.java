@@ -9,8 +9,8 @@ public class Weapon extends Collectible {
         /**
          * The constructor for the weapon collectible.
          *
-         * @param x      The x-coordinate that the weapon collectible is created at.
-         * @param y      The x-coordinate that the weapon collectible is created at.
+         * @param x      The x-coordinate that the weapon collectible is at.
+         * @param y      The x-coordinate that the weapon collectible is at.
          * @param power  The amount that this collectible increases attack power by.
          * @param sprite The char that represents the weapon on the playfield.
          * @param name   The name of the weapon collectible.

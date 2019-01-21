@@ -9,8 +9,8 @@ public class HealthItem extends Collectible {
         /**
          * The constructor for the armor collectible.
          *
-         * @param x      The x-coordinate that the health collectible is created at.
-         * @param y      The x-coordinate that the health collectible is created at.
+         * @param x      The x-coordinate that the health collectible is at.
+         * @param y      The x-coordinate that the health collectible is at.
          * @param power  The amount that this collectible increases health by.
          * @param sprite The char that represents the health on the playfield.
          * @param name   The name of the health collectible.

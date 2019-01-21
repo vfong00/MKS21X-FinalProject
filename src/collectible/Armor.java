@@ -9,8 +9,8 @@ public class Armor extends Collectible {
         /**
          * The constructor for the armor collectible.
          *
-         * @param x      The x-coordinate that the armor collectible is created at.
-         * @param y      The x-coordinate that the armor collectible is created at.
+         * @param x      The x-coordinate that the armor collectible is at.
+         * @param y      The x-coordinate that the armor collectible is at.
          * @param power  The amount that this collectible increases defense by.
          * @param sprite The char that represents the armor on the playfield.
          * @param name   The name of the armor collectible.

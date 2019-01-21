@@ -13,8 +13,8 @@ private String type = "collectible";
  * Constructor for the collectible, the abstract class that represents an item
  * that the player can walk to and collect for an immediate status effect.
  *
- * @param x      The x-coordinate that the collectible is created at.
- * @param y      The x-coordinate that the collectible is created at.
+ * @param x      The x-coordinate that the collectible is at.
+ * @param y      The x-coordinate that the collectible is at.
  * @param sprite The char that represents the collectible on the playfield.
  * @param name   The name of the collectible.
  * @param map    The map that this collectible belongs to.
