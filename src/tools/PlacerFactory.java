@@ -79,10 +79,10 @@ int[] power =		{5, 7,
 			17, 25,
 			35, 55};
 
-TextCharacter[] healthSprites =      {new TextCharacter('q'), new TextCharacter('t'),
-				new TextCharacter('w'),new TextCharacter('y'),
-				new TextCharacter('e'),new TextCharacter('u'),
-				new TextCharacter('r'),new TextCharacter('i')};
+TextCharacter[] healthSprites =      {new TextCharacter('a'), new TextCharacter('b'),
+				new TextCharacter('e'),new TextCharacter('f'),
+				new TextCharacter('j'),new TextCharacter('k'),
+				new TextCharacter('q'),new TextCharacter('r')};
 
 
 
