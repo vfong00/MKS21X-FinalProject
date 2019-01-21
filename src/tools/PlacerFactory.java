@@ -98,8 +98,25 @@ int[] strng =		{10, 12,
 
 TextCharacter[] weaponSprites = 	{new TextCharacter('⋒'),new TextCharacter('∘'),
  					new TextCharacter('∎'), new TextCharacter('∿'),
-					new TextCharacter('⊟'), new TextCharacter('⋮'),
+					new TextCharacter('⥿'), new TextCharacter('⋮'),
 					new TextCharacter('∫'), new TextCharacter('∬') };
+
+
+
+String[] armorNames = {"Tunic of Broken Dreams", "Jerkin",
+			"Palladium Boots", "Orchalium Greaves",
+		 	"Titanium Chainmail", "Admantine Chestpiece",
+		 	"Aether Shield", "Aether Amulet"};
+
+int[] arstrng =		{10, 15,
+			20, 22,
+			30, 38,
+			45, 55};
+//≊ ≋ ≌ ≍ ≎ ≏ ≐ ≑
+TextCharacter[] armorSprites = 	{new TextCharacter('≊'),new TextCharacter('≋'),
+ 					new TextCharacter('≌'), new TextCharacter('≍'),
+					new TextCharacter('≎'), new TextCharacter('≏'),
+					new TextCharacter('≐'), new TextCharacter('≑') };
 
 public PlacerFactory(Maze m, Player p){
 	int level = p.getFloor();
@@ -174,6 +191,24 @@ public PlacerFactory(Maze m, Player p){
 			Weapon w = new Weapon(xcoor, ycoor, strng[weaponno],
 			weaponSprites[weaponno],
 			weaponNames[weaponno],  m);
+		}
+	}
+
+	for (int x = 35; x < 40; x++){
+		int xcoor = xers[index[x]];
+		int ycoor = yers[index[x]];
+		int armorno = randgen.nextInt(armorNames.length);
+		if (level <= 6 && level > -1){
+			armorno = armorno % 2;
+		} else if (level <= 14 && level >= 7){
+			armorno = armorno % 4;
+		} else if (level <=20 && level >= 15){
+			armorno = armorno % 6;
+		}
+		if (randgen.nextInt() % 100 <= 25){
+			// Weapon w = new Weapon(xcoor, ycoor, strng[weaponno],
+			// weaponSprites[weaponno],
+			// weaponNames[weaponno],  m);
 		}
 	}
 }
