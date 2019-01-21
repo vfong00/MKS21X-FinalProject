@@ -1,5 +1,12 @@
 # MKS21X-FinalProject
-making a roguelike game
+An attempt to make a roguelike game.
+This game features:
+- Random terrain generation of dungeons
+- Scary monsters with somewhat scary-looking sprites
+- Cool items dispersed everywhere
+- A nameable player that you will surely love
+- Levels! Progressing monsters! It goes forever! (or until you die or get tired or something)
+- The communist hammer and sickle.
 
 ## windows
 lol
@@ -74,7 +81,7 @@ moving Air tiles.
 There were some issues in the branch screenPort where the terrainGeneration would
 print onto the terminal, but the underlying data structure of terrainGeneration
 would intermix with the proper terrain. This led to me making a new brach to work
-ground up, from the point where terrain eneration last worked, and immediately start
+ground up, from the point where terrain generation last worked, and immediately start
 moving that work into Screen. After that was sorted out, I began moving around
 functions into their respective objects.
 
@@ -103,7 +110,7 @@ Tileable.
 ## devlog - Vincent
 ### 01-04-19
 + made extremely basic files (Nethack game file, Entity abstract class, Player)
-+ found way to place interactable 'walls' within terminal
++ found way to place interactive 'walls' within terminal
 We are looking to integrate the underlying maze array and the terminal in some way.
 Moody's working to create maze generation, and a better way than a crude Object[][].
 I will be out until Sunday, as I have an all-day event to be at on Saturday.
@@ -153,10 +160,15 @@ I was on a trip on Saturday, and I spent most of Sunday recovering.
 + wrote in xp levels and floor level counter, which is now seen in game
 + made the golden shield look like a shield (but not gold). also made other characters cooler
 
-To do list (in order of approachability/importance/some ordering):
-- menu
+### 01-20-18
+I haven't been doing much the past few days, as Moody's been working on his menu.
+The project is pretty much what we expected it to be? A big, expansive thing that I totally
+did not see coming?
+
+I wrote javadocs.
+
+Features to implement next??? (in order of approachability/importance/some ordering):
 - how the player dies
-- figure out way to not have tileables spawn in a wall (aka good random generation)
+- figure out way to not have Tileables spawn in a wall (aka good random generation)
 ===
-- health collectible
 - player inventory
