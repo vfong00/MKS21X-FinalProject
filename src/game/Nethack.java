@@ -6,6 +6,7 @@ import com.googlecode.lanterna.TextColor.*;
 import com.googlecode.lanterna.Symbols.*;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.*;
+import com.googlecode.lanterna.input.KeyType;
 import java.io.IOException;
 import java.util.Random;
 
@@ -80,6 +81,10 @@ public static void run() throws IOException{
 
 		// ask for the keyStroke once, then feed into all the "feeder" functions
 		KeyStroke key = terminal.readInput();
+		while(key.getKeyType() == KeyType.ArrowDown || key.getKeyType() == KeyType.ArrowUp
+			|| key.getKeyType() == KeyType.ArrowLeft || key.getKeyType() == KeyType.ArrowRight){
+			key = terminal.readInput();
+		}
 		char c = key.getCharacter();
 		if (c == 'q'){
 			terminal.exitPrivateMode();
