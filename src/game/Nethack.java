@@ -48,36 +48,37 @@ public static void statusMessageUpdate(Player p, TerminalScreen s, String top) t
 }
 
 public static void main(String[] args) throws IOException {
-        Maze maze = new Maze();
+	Maze maze = new Maze();
 	Generation g = new Generation(5);
-        ExtendedTerminal terminal = new UnixTerminal();
-        // terminal.enterPrivateMode();
-        terminal.setCursorVisible(false);
+	ExtendedTerminal terminal = new UnixTerminal();
+	// terminal.enterPrivateMode();
+	terminal.setCursorVisible(false);
 	TerminalScreen s = new TerminalScreen(terminal);
 	s.startScreen();
 	s.setCursorPosition(null);
 
 	regenMaze(maze,terminal,g);
 
-        Player p = new Player(10, 10, "bread", maze);
+	Player p = new Player(10, 10, "bread", maze);
 	Monster m0 = new Monster(11, 11, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
 	Monster m1 = new Monster(11, 14, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
 	Monster m2 = new Monster(11, 8, 10, 10, 5, 1, 75, new TextCharacter('\u0D95'), "Ghost", maze);
 	Monster boss = new Monster(15,10,(2 * (15 + (p.getFloor() * 2))),(2 * (15 + (p.getFloor() * 2))), 30 + (p.getFloor() * 2), 40 + (p.getFloor() * 4), 85 + p.getFloor(), new TextCharacter('\u2F24'), "Boss", maze);
 	boss.die();
 	int monsCycleCount = 0;
-        Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
+	TextCharacter[] monsChars = {new TextCharacter('\u0D95'), new TextCharacter('\u03B6'), new TextCharacter('\u2124'), new TextCharacter('\uA025'), new TextCharacter('G')};
+	String[] monsNames = {"Ghost", "Snake Person", "Zombie", "Spider", "Goblin"};
+
+	Weapon w = new Weapon(12,12,4,new TextCharacter('\u262d',ANSI.RED,ANSI.RED),"Soviet Sickle", maze);
 	Armor d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 	HealthItem h = new HealthItem(15,15,10,"Mom's Spaghetti", maze);
 	Stairs st = new Stairs(16,16,maze);
+
 	boolean temp = false;
-        boolean running = true;
+	boolean running = true;
 	boolean init = false;
 	statusMessageUpdate(p,s,"Begin game");
 	putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
-
-	TextCharacter[] monsChars = {new TextCharacter('\u0D95'), new TextCharacter('\u03B6'), new TextCharacter('\u2124'), new TextCharacter('\uA025'), new TextCharacter('G')};
-	String[] monsNames = {"Ghost", "Snake Person", "Zombie", "Spider", "Goblin"};
 
 	while (running){
 
