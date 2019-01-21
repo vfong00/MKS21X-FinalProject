@@ -129,6 +129,7 @@ public abstract class Entity implements Tileable{
   /**
    * Accessor method for the defense field of this entity.
    * (Decreases damage taken by defense%)
+   * (This maxes out at 100, because it would be dumb to have the entity take no damage)
    *
    * @return A double for how much defense this entity has.
    */

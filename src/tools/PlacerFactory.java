@@ -48,7 +48,7 @@ public PlacerFactory(Maze m, Player p){
 	for (int x = 0; x < 25; x++){
 		int xcoor = xers[index[x]];
 		int ycoor = yers[index[x]];
-		Monster mon = new Monster(xcoor, ycoor, 5, 20.0, 5.0, 5.0, 6, new TextCharacter('B'), "big mood", m);
+		Monster mon = new Monster(xcoor, ycoor, 5, 20.0, 10.0, 5.0, 60, new TextCharacter('B'), "big mood", m);
 		monsters[x] = mon;
 	}
 }
