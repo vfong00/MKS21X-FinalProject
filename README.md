@@ -2,9 +2,9 @@
 
 ## So like, what is this thing?
 An attempt to make a roguelike game. <br/>
-[Here is a Wikipedia article that explains one] (https://en.wikipedia.org/wiki/Roguelike) <br/>
+Here is a Wikipedia article that explains one: https://en.wikipedia.org/wiki/Roguelike <br/>
 TL;DR? Dungeon-maze game. <br/>
-This game features: <br/>
+This game features:
 - A menu, with the most impressive of all logos
 - Random terrain generation of dungeons
 - Scary monsters with somewhat scary-looking sprites
@@ -36,6 +36,9 @@ WASD to move <br/>
 'p' to generate new dungeon   <br/>
 'q' to quit  <br/>
 To attack/collect, simply walk over what you want to interact with.
+
+## Anything else?
+Try to find the easter egg!
 
 ## devlog- moody
 ### 01-05-19
@@ -182,10 +185,9 @@ I haven't been doing much the past few days, as Moody's been working on his menu
 The project is pretty much what we expected it to be? A big, expansive thing that I totally
 did not see coming?
 
-I wrote javadocs.
+I wrote javadocs, and the readme. That was fun.
 
 Features to implement next??? (in order of approachability/importance/some ordering):
 - A death screen
 - figure out way to not have Tileables spawn in a wall (aka good random generation)
-===
 - player inventory
