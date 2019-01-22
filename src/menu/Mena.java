@@ -89,7 +89,7 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 
 				putString(8, 22, sc, "PRO TIP");
 				putString(8, 23, sc, "It's tempting to zoom to the stairs, but the monsters get real strong");
-				putString(8, 24, sc, "You should gring weaker monsters and get more XP (which is also your final score)");
+				putString(8, 24, sc, "You should grind weaker monsters and get more XP (which is also your final score)");
 				sc.refresh(Screen.RefreshType.DELTA);
 				z = term.readInput();
 				sc.clear();
