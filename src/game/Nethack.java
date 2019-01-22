@@ -89,7 +89,6 @@ public static void run() throws IOException{
 			p.moveTo(10,10,maze);
 			st = new Stairs(16,16,maze);
 			fact = new PlacerFactory(maze, p);
-			d = new Armor(13,13,4,new TextCharacter(Symbols.OUTLINED_SQUARE,ANSI.YELLOW,ANSI.YELLOW),"Golden Shield", maze);
 		}
 		p.moveViaInput(c);
 		fact.mover();
@@ -107,6 +106,10 @@ public static void run() throws IOException{
 		s.clear();
 		statusMessageUpdate(p,s,p.getToPrint());
 		putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
+		// p.levelup();
+		if (p.getHP() <= 0){
+			System.exit(1);
+		}
 	}
 }
 

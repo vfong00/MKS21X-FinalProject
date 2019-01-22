@@ -1,6 +1,7 @@
 import java.util.Random;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor.*;
+import java.lang.Math.*;
 
 
 public class Player extends Entity {
@@ -38,6 +39,11 @@ public void setAtStairs(boolean v) {
 	atStairs = v;
 }
 
+public void levelup(){
+	this.setDamage(this.getDamage() + (0.05 * Math.sqrt(Math.sqrt(this.getXP()))));
+}
+
+
 public void damage(Entity e){
 	toPrint = "";
 	boolean isWall = e.getName().equals("Wall");
@@ -65,6 +71,9 @@ public void damage(Entity e){
 		e.setHP(e.getHP() - actDamageDone);
 		if (e.getHP() <= 0){
 			incXP(e.givenXP());
+
+			this.levelup();
+
 			e.die();
 			toPrint = "Killed " + e.getName() + ". Got " + e.givenXP() + ".";
 			return;
