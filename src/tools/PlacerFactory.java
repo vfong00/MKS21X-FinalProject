@@ -128,7 +128,6 @@ public PlacerFactory(Maze m, Player p){
 			if (m.getMaze()[x][y].getType().equals("air")){
 				blankx.add(new Integer(x));
 				blanky.add(new Integer(y));
-
 			}
 		}
 	}
