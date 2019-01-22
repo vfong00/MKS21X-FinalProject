@@ -108,6 +108,10 @@ public static void run() throws IOException{
 		putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
 		// p.levelup();
 		if (p.getHP() <= 0){
+			s.clear();
+			putString(10, 10, s, "ya died :(");
+			s.refresh(Screen.RefreshType.DELTA);
+			KeyStroke ko = terminal.readInput();
 			System.exit(1);
 		}
 	}
