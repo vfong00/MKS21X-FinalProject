@@ -133,7 +133,7 @@ the PlacerFactory. This automates placing monsters, armor, weapons, health items
 and the Stair. PlacerFactory also has an array with all the Monsters, to mass call
 nextMove() on them. I gave the XP field a use, to scale player damage and act as the
 final score. No AI. That's beyond the scope of this project and the time constraints.
-Finally I made the death screen, a simple message with the score. 
+Finally I made the death screen, a simple message with the score.
 
 ## devlog - Vincent
 ### 01-04-19
@@ -194,8 +194,3 @@ The project is pretty much what we expected it to be? A big, expansive thing tha
 did not see coming?
 
 I wrote javadocs, the readme, and an easter egg. That was fun.
-
-Features to implement next??? (in order of approachability/importance/some ordering):
-- A death screen
-- figure out way to not have Tileables spawn in a wall (aka good random generation)
-- player inventory

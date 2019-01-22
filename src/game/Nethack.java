@@ -12,6 +12,14 @@ import java.util.Random;
 
 public class Nethack {
 
+/**
+ * Adapted from Mr. K's model, this places a string starting at (r,c) in the terminal.
+ *
+ * @param  r           The row position that this string begins at.
+ * @param  c           The column position that this string begins at.
+ * @param  t           The screen to place this string onto.
+ * @param  s           The string to place.
+ */
 public static void putString(int r, int c,TerminalScreen t, String s) throws IOException{
 	for(int i = 0; i < s.length();i++){
                 t.setCharacter(r,c,new TextCharacter(s.charAt(i)));
@@ -20,7 +28,14 @@ public static void putString(int r, int c,TerminalScreen t, String s) throws IOE
 }
 
 
-
+/**
+ * Used for listing of a message above the maze,
+ * and player stats below the maze.
+ *
+ * @param  p           The player that this method gets stats from.
+ * @param  s           The screen to display these stats on.
+ * @param  top         The top message to be displayed.
+ */
 public static void statusMessageUpdate(Player p, TerminalScreen s, String top) throws IOException {
 	String bottomBar1 = "Player Name: " + p.getName() + "          HP: " + p.getHP();
 	String bottomBar2 = "ATK: " + p.getDamage() + "          DEF: " + p.getDefense() + "          SKILL: " + p.getAccuracy();
@@ -35,26 +50,28 @@ public static void statusMessageUpdate(Player p, TerminalScreen s, String top) t
 
 
 public static void run() throws IOException{
+	// initialization of maze and terminal together
 	Maze maze = new Maze();
 	Generation g = new Generation(5);
         ExtendedTerminal terminal = new UnixTerminal();
-        // terminal.enterPrivateMode();
         terminal.setCursorVisible(false);
 	TerminalScreen s = new TerminalScreen(terminal);
 	s.startScreen();
 	s.setCursorPosition(null);
 
+	// menu creation
 	Mena ma = new Mena(s, terminal);
 	s.refresh(Screen.RefreshType.DELTA);
 	try{Thread.sleep(1000);}catch(Exception e){}
 	s.refresh(Screen.RefreshType.DELTA);
 
+	// beginning of maze generation, walls placed
 	Maze.regenMaze(maze,terminal,g);
 
+	// placing of entities and collectibles that do things
         Player p = new Player(10, 10, "bread", maze);
 	PlacerFactory fact = new PlacerFactory(maze, p);
 	Stairs st = new Stairs(90,10,maze);
-	boolean temp = false;
         boolean running = true;
 	boolean init = false;
 	statusMessageUpdate(p,s,"Begin game");
@@ -73,11 +90,15 @@ public static void run() throws IOException{
 
 		// ask for the keyStroke once, then feed into all the "feeder" functions
 		KeyStroke key = terminal.readInput();
+
+		// handles crashing from arrow keys
 		while(key.getKeyType() == KeyType.ArrowDown || key.getKeyType() == KeyType.ArrowUp
 			|| key.getKeyType() == KeyType.ArrowLeft || key.getKeyType() == KeyType.ArrowRight){
 			key = terminal.readInput();
 		}
+
 		char c = key.getCharacter();
+		// quits game
 		if (c == 'q'){
 			terminal.exitPrivateMode();
 			System.exit(0);
@@ -90,6 +111,8 @@ public static void run() throws IOException{
 			st = new Stairs(90, 10,maze);
 			fact = new PlacerFactory(maze, p);
 		}
+
+		// if nothing is wrong and the game is operated like it's meant to
 		p.moveViaInput(c);
 		fact.mover();
 		if (p.getAtStairs()) {
@@ -107,6 +130,8 @@ public static void run() throws IOException{
 		statusMessageUpdate(p,s,p.getToPrint());
 		putString(0,1,s,"X: " + p.getX() + "   Y: " + p.getY());
 		// p.levelup();
+
+		// game over screen
 		if (p.getHP() <= 0){
 			s.clear();
 			//_______________________________     __________ _________________
