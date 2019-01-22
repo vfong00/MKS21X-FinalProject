@@ -126,6 +126,14 @@ monsters there. It also stores all the instances of monsters and makes mass acti
 much easier to facilitate. I structured it so PlacerFactory can work on any
 Tileable.
 
+## devlog- moody
+### 01-21-19
+Last day coding grind. I worked on the final cherry on top aspect of the project,
+the PlacerFactory. This automates placing monsters, armor, weapons, health items,
+and the Stair. PlacerFactory also has an array with all the Monsters, to mass call
+nextMove() on them. I gave the XP field a use, to scale player damage and act as the
+final score. No AI. That's beyond the scope of this project and the time constraints.
+Finally I made the death screen, a simple message with the score. 
 
 ## devlog - Vincent
 ### 01-04-19
