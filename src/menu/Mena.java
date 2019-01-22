@@ -29,30 +29,30 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 	boolean inMenu = true;
 	// putString(0, 0, sc, "" + monpes);
 
-	//  ______   _______           _______  _______  _______  _
-	// (  ___ \ (  ___  )|\     /|(  ____ )(  ___  )(  ___  )( \
-	// | (   ) )| (   ) |( \   / )| (    )|| (   ) || (   ) || (
-	// | (__/ / | (___) | \ (_) / | (____)|| |   | || |   | || |
-	// |  __ (  |  ___  |  \   /  |  _____)| |   | || |   | || |
-	// | (  \ \ | (   ) |   ) (   | (      | |   | || |   | || |
-	// | )___) )| )   ( |   | |   | )      | (___) || (___) || (____/\
-	// |/ \___/ |/     \|   \_/   |/       (_______)(_______)(_______/
+	// ╔╗╔╔═╗╔╦╗╦ ╦╔═╗╔═╗╦╔═  ╦╦
+	// ║║║║╣  ║ ╠═╣╠═╣║  ╠╩╗  ║║
+	// ╝╚╝╚═╝ ╩ ╩ ╩╩ ╩╚═╝╩ ╩  ╩╩
+	// ┌─┐┬  ┌─┐┌─┐┌┬┐┬─┐┬┌─┐  ┌─┐┌─┐┌─┐┌─┐┌─┐┬  ┌─┐┌─┐
+	// ├┤ │  ├┤ │   │ ├┬┘││    ├┤ │ ││ ││ ┬├─┤│  │ ││ │
+	// └─┘┴─┘└─┘└─┘ ┴ ┴└─┴└─┘  └─┘└─┘└─┘└─┘┴ ┴┴─┘└─┘└─┘
 
 
-	putString(21, 5 , sc, "  ______   _______           _______  _______  _______  _       ");
-	putString(21, 6 , sc, "(  ___ \\ (  ___  )|\\     /|(  ____ )(  ___  )(  ___  )( \\");
-	putString(21, 7 , sc, "| (   ) )| (   ) |( \\   / )| (    )|| (   ) || (   ) || (");
-	putString(21, 8 , sc, "| (__/ / | (___) | \\ (_) / | (____)|| |   | || |   | || |");
-	putString(21, 9 , sc, "|  __ (  |  ___  |  \\   /  |  _____)| |   | || |   | || |");
-	putString(21, 10, sc, "| (  \\ \\ | (   ) |   ) (   | (      | |   | || |   | || |");
-	putString(21, 11, sc, "| )___) )| )   ( |   | |   | )      | (___) || (___) || (____/\\");
-	putString(21, 12, sc, "|/ \\___/ |/     \\|   \\_/   |/       (_______)(_______)(_______/");
+	// putString(21, 5 , sc, "  ______   _______           _______  _______  _______  _       ");
+	// putString(21, 6 , sc, "(  ___ \\ (  ___  )|\\     /|(  ____ )(  ___  )(  ___  )( \\");
+	putString(21, 7 , sc, " ╔╗╔╔═╗╔╦╗╦ ╦╔═╗╔═╗╦╔═  ╦╦    ");
+	putString(21, 8 , sc, " ║║║║╣  ║ ╠═╣╠═╣║  ╠╩╗  ║║                       ");
+	putString(21, 9 , sc, " ╝╚╝╚═╝ ╩ ╩ ╩╩ ╩╚═╝╩ ╩  ╩╩                       ");
+	putString(21, 10, sc, "┌─┐┬  ┌─┐┌─┐┌┬┐┬─┐┬┌─┐  ┌─┐┌─┐┌─┐┌─┐┌─┐┬  ┌─┐┌─┐");
+	putString(21, 11, sc, "├┤ │  ├┤ │   │ ├┬┘││    ├┤ │ ││ ││ ┬├─┤│  │ ││ │");
+	putString(21, 12, sc, "└─┘┴─┘└─┘└─┘ ┴ ┴└─┴└─┘  └─┘└─┘└─┘└─┘┴ ┴┴─┘└─┘└─┘");
 
 	putString(25, 24, sc, "start");
 	putString(25, 25, sc, "help");
 	putString(25, 26, sc, "credits");
 	putString(25, 27, sc, "quit");
 	putString(24, monpes, sc, ">");
+	putString(45, 30, sc, "w and s to scroll");
+	putString(45, 31, sc, "space to select");
 	sc.refresh(Screen.RefreshType.DELTA);
 	while (inMenu){
 		sc.clear();
@@ -78,9 +78,16 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 			}
 			if (c == 1){
 				sc.clear();
-				putString(12, 12, sc, "WASD to move around");
-				putString(12, 13, sc, "Walk into enemies to damage them");
-				putString(12, 14, sc, "Triangles are stairs to the next floor");
+				putString(8, 12, sc, "WASD to move around");
+				putString(8, 13, sc, "Walk into enemies to damage them");
+				putString(8, 14, sc, "Triangles are stairs to the next floor");
+
+				// ≊≋≌≍≎≏≐≑≏≐≑≑≑≑     λμω*)(Ξ+ΨΩ     ⋒∘∎∿⥿⋮∫∬     abefjkqr
+				//
+				// armor              monsters       weapons      food (health up)
+				putString(12, 18, sc, "≊≋≌≍≎≏≐≑≏≐≑≑≑≑     λμω*)(Ξ+ΨΩ     ⋒∘∎∿⥿⋮∫∬     abefjkqr");
+				putString(12, 19, sc, "armor              monsters       weapons      food (health up)");
+
 				sc.refresh(Screen.RefreshType.DELTA);
 				KeyStroke z = term.readInput();
 				sc.clear();
@@ -111,18 +118,19 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 			}
 		}
 		// putString(0, 0, sc, "" + monpes);
-		putString(21, 5 , sc, "  ______   _______           _______  _______  _______  _       ");
-		putString(21, 6 , sc, "(  ___ \\ (  ___  )|\\     /|(  ____ )(  ___  )(  ___  )( \\");
-		putString(21, 7 , sc, "| (   ) )| (   ) |( \\   / )| (    )|| (   ) || (   ) || (");
-		putString(21, 8 , sc, "| (__/ / | (___) | \\ (_) / | (____)|| |   | || |   | || |");
-		putString(21, 9 , sc, "|  __ (  |  ___  |  \\   /  |  _____)| |   | || |   | || |");
-		putString(21, 10, sc, "| (  \\ \\ | (   ) |   ) (   | (      | |   | || |   | || |");
-		putString(21, 11, sc, "| )___) )| )   ( |   | |   | )      | (___) || (___) || (____/\\");
-		putString(21, 12, sc, "|/ \\___/ |/     \\|   \\_/   |/       (_______)(_______)(_______/");
+		putString(21, 7 , sc, " ╔╗╔╔═╗╔╦╗╦ ╦╔═╗╔═╗╦╔═  ╦╦    ");
+		putString(21, 8 , sc, " ║║║║╣  ║ ╠═╣╠═╣║  ╠╩╗  ║║                       ");
+		putString(21, 9 , sc, " ╝╚╝╚═╝ ╩ ╩ ╩╩ ╩╚═╝╩ ╩  ╩╩                       ");
+		putString(21, 10, sc, "┌─┐┬  ┌─┐┌─┐┌┬┐┬─┐┬┌─┐  ┌─┐┌─┐┌─┐┌─┐┌─┐┬  ┌─┐┌─┐");
+		putString(21, 11, sc, "├┤ │  ├┤ │   │ ├┬┘││    ├┤ │ ││ ││ ┬├─┤│  │ ││ │");
+		putString(21, 12, sc, "└─┘┴─┘└─┘└─┘ ┴ ┴└─┴└─┘  └─┘└─┘└─┘└─┘┴ ┴┴─┘└─┘└─┘");
 		putString(25, 24, sc, "start");
 		putString(25, 25, sc, "help");
 		putString(25, 26, sc, "credits");
 		putString(25, 27, sc, "quit");
+
+		// putString(45, 30, sc, "w and s to scroll");
+		// putString(45, 31, sc, "space to select");
 		putString(24, monpes % 4 + 24, sc, ">");
 		sc.refresh(Screen.RefreshType.DELTA);
 	}
