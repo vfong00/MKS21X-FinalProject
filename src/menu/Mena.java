@@ -81,15 +81,17 @@ public Mena(TerminalScreen t, ExtendedTerminal term) throws IOException{
 				putString(8, 12, sc, "WASD to move around");
 				putString(8, 13, sc, "Walk into enemies to damage them");
 				putString(8, 14, sc, "Triangles are stairs to the next floor");
-
-				// ≊≋≌≍≎≏≐≑≏≐≑≑≑≑     λμω*)(Ξ+ΨΩ     ⋒∘∎∿⥿⋮∫∬     abefjkqr
-				//
-				// armor              monsters       weapons      food (health up)
 				putString(12, 18, sc, "≊≋≌≍≎≏≐≑≏≐≑≑≑≑     λμω*)(Ξ+ΨΩ     ⋒∘∎∿⥿⋮∫∬     abefjkqr");
 				putString(12, 19, sc, "armor              monsters       weapons      food (health up)");
 
 				sc.refresh(Screen.RefreshType.DELTA);
 				KeyStroke z = term.readInput();
+
+				putString(8, 22, sc, "PRO TIP");
+				putString(8, 23, sc, "It's tempting to zoom to the stairs, but the monsters get real strong");
+				putString(8, 24, sc, "You should gring weaker monsters and get more XP (which is also your final score)");
+				sc.refresh(Screen.RefreshType.DELTA);
+				z = term.readInput();
 				sc.clear();
 			}
 			if (c == 2) {
