@@ -53,7 +53,7 @@ public static void run() throws IOException{
 
         Player p = new Player(10, 10, "bread", maze);
 	PlacerFactory fact = new PlacerFactory(maze, p);
-	Stairs st = new Stairs(16,16,maze);
+	Stairs st = new Stairs(90,10,maze);
 	boolean temp = false;
         boolean running = true;
 	boolean init = false;
@@ -87,7 +87,7 @@ public static void run() throws IOException{
 		if (c == 'p') {
 			Maze.regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
-			st = new Stairs(16,16,maze);
+			st = new Stairs(90, 10,maze);
 			fact = new PlacerFactory(maze, p);
 		}
 		p.moveViaInput(c);
@@ -95,7 +95,7 @@ public static void run() throws IOException{
 		if (p.getAtStairs()) {
 			Maze.regenMaze(maze, terminal, g);
 			p.moveTo(10,10,maze);
-			st = new Stairs(16,16,maze);
+			st = new Stairs(90, 10,maze);
 			fact = new PlacerFactory(maze, p);
 			p.setAtStairs(false);
 		}
