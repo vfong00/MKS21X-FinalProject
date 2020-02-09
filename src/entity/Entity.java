@@ -9,6 +9,7 @@ public abstract class Entity implements Tileable{
   private String type = "entity";
   private String name;
   private boolean dead = false;
+  private boolean visibile = true;
 
   /**
    * Constructor for the abstract entity object: an entity is able to move around
@@ -211,6 +212,10 @@ public abstract class Entity implements Tileable{
    */
   public boolean getDead() {
           return dead;
+  }
+
+  public boolean getVisibility(){
+  	return visibile;
   }
 
   /**
